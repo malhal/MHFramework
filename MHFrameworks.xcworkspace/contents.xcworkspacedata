@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:MMapKit/MMapKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MCoreLocation/MCoreLocation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MCloudKit/MCloudKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MUIKit/MUIKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MCoreData/MCoreData.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MHFoundation/MHFoundation.xcodeproj">
+   </FileRef>
+</Workspace>
