@@ -9,7 +9,7 @@
 
 #import <MMShared/MMSHasDatabaseScope.h>
 
-#import <MMShared/MMSUtilities.h>
+#import <MMShared/MMSCKUtilities.h>
 #import <MMShared/MMSUserSpecificRecordID.h>
 #import <MMShared/MMSRecordSystemFieldsTransformer.h>
 #import <MMShared/MMSShareSystemFieldsTransformer.h>

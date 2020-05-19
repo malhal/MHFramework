@@ -12,247 +12,247 @@
 		EC2B349C246FF376003833FB /* MMSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B348B246FF376003833FB /* MMSMapViewController.m */; };
 		EC2B349E246FF376003833FB /* MMSEmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B348D246FF376003833FB /* MMSEmptySegue.m */; };
 		EC2B349F246FF376003833FB /* MMSAnnotationsTableBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B348E246FF376003833FB /* MMSAnnotationsTableBarButtonItem.m */; };
-		EC2B34A0246FF376003833FB /* MMSMapTypeBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B348F246FF376003833FB /* MMSMapTypeBarButtonItem.h */; };
+		EC2B34A0246FF376003833FB /* MMSMapTypeBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B348F246FF376003833FB /* MMSMapTypeBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC2B34A1246FF376003833FB /* MKMapView+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B3490246FF376003833FB /* MKMapView+MMS.m */; };
-		EC2B34A2246FF376003833FB /* MMSAnnotationSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3491246FF376003833FB /* MMSAnnotationSegue.h */; };
-		EC2B34A3246FF376003833FB /* MapKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3492246FF376003833FB /* MapKit.h */; };
-		EC2B34A4246FF376003833FB /* MMSFetchedResultsMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3493246FF376003833FB /* MMSFetchedResultsMapViewController.h */; };
-		EC2B34A5246FF376003833FB /* MMSMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3494246FF376003833FB /* MMSMapViewController.h */; };
+		EC2B34A2246FF376003833FB /* MMSAnnotationSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3491246FF376003833FB /* MMSAnnotationSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC2B34A3246FF376003833FB /* MapKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3492246FF376003833FB /* MapKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC2B34A4246FF376003833FB /* MMSFetchedResultsMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3493246FF376003833FB /* MMSFetchedResultsMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC2B34A5246FF376003833FB /* MMSMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3494246FF376003833FB /* MMSMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC2B34A6246FF376003833FB /* MMSMapTypeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B3495246FF376003833FB /* MMSMapTypeBarButtonItem.m */; };
-		EC2B34A7246FF376003833FB /* MKMapView+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3496246FF376003833FB /* MKMapView+MMS.h */; };
-		EC2B34A8246FF376003833FB /* MMSAnnotationsTableBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3497246FF376003833FB /* MMSAnnotationsTableBarButtonItem.h */; };
-		EC2B34A9246FF376003833FB /* MMSEmptySegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3498246FF376003833FB /* MMSEmptySegue.h */; };
-		EC2B34AE246FF649003833FB /* CoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B34AD246FF649003833FB /* CoreData.h */; };
-		EC2B34B3246FF677003833FB /* MMSLocationManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B34AF246FF677003833FB /* MMSLocationManagedObject.h */; };
+		EC2B34A7246FF376003833FB /* MKMapView+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3496246FF376003833FB /* MKMapView+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC2B34A8246FF376003833FB /* MMSAnnotationsTableBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3497246FF376003833FB /* MMSAnnotationsTableBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC2B34A9246FF376003833FB /* MMSEmptySegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B3498246FF376003833FB /* MMSEmptySegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC2B34AE246FF649003833FB /* CoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B34AD246FF649003833FB /* CoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC2B34B3246FF677003833FB /* MMSLocationManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B34AF246FF677003833FB /* MMSLocationManagedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC2B34B4246FF677003833FB /* MMSLocationManagedObject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC2B34B0246FF677003833FB /* MMSLocationManagedObject.xcdatamodeld */; };
 		EC2B34B5246FF677003833FB /* MMSLocationManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B34B2246FF677003833FB /* MMSLocationManagedObject.m */; };
-		EC2B34B8246FF81F003833FB /* NSError+MMSCD.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B34B6246FF81E003833FB /* NSError+MMSCD.h */; };
+		EC2B34B8246FF81F003833FB /* NSError+MMSCD.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B34B6246FF81E003833FB /* NSError+MMSCD.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC2B34B9246FF81F003833FB /* NSError+MMSCD.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B34B7246FF81E003833FB /* NSError+MMSCD.m */; };
-		EC2B34BC246FF8D6003833FB /* NSPredicate+MMSMK.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B34BA246FF8D6003833FB /* NSPredicate+MMSMK.h */; };
+		EC2B34BC246FF8D6003833FB /* NSPredicate+MMSMK.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2B34BA246FF8D6003833FB /* NSPredicate+MMSMK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC2B34BD246FF8D6003833FB /* NSPredicate+MMSMK.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B34BB246FF8D6003833FB /* NSPredicate+MMSMK.m */; };
 		EC31CD4F246F263800DCFF05 /* MMShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC31CD45246F263800DCFF05 /* MMShared.framework */; };
 		EC31CD54246F263800DCFF05 /* MMSharedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CD53246F263800DCFF05 /* MMSharedTests.m */; };
 		EC31CD56246F263800DCFF05 /* MMShared.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CD48246F263800DCFF05 /* MMShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC31CF9D246F2E7200DCFF05 /* UIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CF9C246F2E7200DCFF05 /* UIKit.h */; };
+		EC31CF9D246F2E7200DCFF05 /* UIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CF9C246F2E7200DCFF05 /* UIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31CFB8246F31AE00DCFF05 /* CKRecordID+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CF9E246F31AD00DCFF05 /* CKRecordID+MMS.m */; };
-		EC31CFB9246F31AE00DCFF05 /* CKRecord+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CF9F246F31AD00DCFF05 /* CKRecord+MMS.h */; };
+		EC31CFB9246F31AE00DCFF05 /* CKRecord+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CF9F246F31AD00DCFF05 /* CKRecord+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31CFBA246F31AE00DCFF05 /* MMSUserSpecificRecordID.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFA0246F31AD00DCFF05 /* MMSUserSpecificRecordID.m */; };
 		EC31CFBB246F31AE00DCFF05 /* CKReference+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFA1246F31AD00DCFF05 /* CKReference+MMS.m */; };
-		EC31CFBC246F31AE00DCFF05 /* CloudKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA2246F31AD00DCFF05 /* CloudKit.h */; };
-		EC31CFBD246F31AE00DCFF05 /* MMSUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA3246F31AD00DCFF05 /* MMSUtilities.h */; };
-		EC31CFBE246F31AE00DCFF05 /* MMSShareSystemFieldsTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA4246F31AD00DCFF05 /* MMSShareSystemFieldsTransformer.h */; };
-		EC31CFBF246F31AE00DCFF05 /* CKReference+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA5246F31AD00DCFF05 /* CKReference+MMS.h */; };
-		EC31CFC0246F31AE00DCFF05 /* MMSHasDatabaseScope.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA6246F31AD00DCFF05 /* MMSHasDatabaseScope.h */; };
-		EC31CFC1246F31AE00DCFF05 /* CKRecordID+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA7246F31AD00DCFF05 /* CKRecordID+MMS.h */; };
-		EC31CFC2246F31AE00DCFF05 /* MMSRecordSystemFieldsTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA8246F31AD00DCFF05 /* MMSRecordSystemFieldsTransformer.h */; };
+		EC31CFBC246F31AE00DCFF05 /* CloudKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA2246F31AD00DCFF05 /* CloudKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31CFBD246F31AE00DCFF05 /* MMSCKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA3246F31AD00DCFF05 /* MMSCKUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31CFBE246F31AE00DCFF05 /* MMSShareSystemFieldsTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA4246F31AD00DCFF05 /* MMSShareSystemFieldsTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31CFBF246F31AE00DCFF05 /* CKReference+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA5246F31AD00DCFF05 /* CKReference+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31CFC0246F31AE00DCFF05 /* MMSHasDatabaseScope.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA6246F31AD00DCFF05 /* MMSHasDatabaseScope.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31CFC1246F31AE00DCFF05 /* CKRecordID+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA7246F31AD00DCFF05 /* CKRecordID+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31CFC2246F31AE00DCFF05 /* MMSRecordSystemFieldsTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFA8246F31AD00DCFF05 /* MMSRecordSystemFieldsTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31CFC3246F31AE00DCFF05 /* CKFetchRecordZoneChangesOperation+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFA9246F31AD00DCFF05 /* CKFetchRecordZoneChangesOperation+MMS.m */; };
 		EC31CFC4246F31AE00DCFF05 /* CKFetchDatabaseChangesOperation+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFAA246F31AD00DCFF05 /* CKFetchDatabaseChangesOperation+MMS.m */; };
-		EC31CFC5246F31AE00DCFF05 /* CKFetchDatabaseChangesOperation+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFAB246F31AD00DCFF05 /* CKFetchDatabaseChangesOperation+MMS.h */; };
-		EC31CFC6246F31AE00DCFF05 /* MMSUserSpecificRecordID.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFAC246F31AD00DCFF05 /* MMSUserSpecificRecordID.h */; };
+		EC31CFC5246F31AE00DCFF05 /* CKFetchDatabaseChangesOperation+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFAB246F31AD00DCFF05 /* CKFetchDatabaseChangesOperation+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31CFC6246F31AE00DCFF05 /* MMSUserSpecificRecordID.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFAC246F31AD00DCFF05 /* MMSUserSpecificRecordID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31CFC7246F31AE00DCFF05 /* MMSRecordSystemFieldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFAD246F31AD00DCFF05 /* MMSRecordSystemFieldsTransformer.m */; };
 		EC31CFC8246F31AE00DCFF05 /* MMSShareSystemFieldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFAE246F31AD00DCFF05 /* MMSShareSystemFieldsTransformer.m */; };
-		EC31CFC9246F31AE00DCFF05 /* CKOperation+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFAF246F31AD00DCFF05 /* CKOperation+MMS.h */; };
+		EC31CFC9246F31AE00DCFF05 /* CKOperation+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFAF246F31AD00DCFF05 /* CKOperation+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31CFCA246F31AE00DCFF05 /* CKRecord+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFB0246F31AD00DCFF05 /* CKRecord+MMS.m */; };
-		EC31CFCB246F31AE00DCFF05 /* MMSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFB1246F31AD00DCFF05 /* MMSUtilities.m */; };
+		EC31CFCB246F31AE00DCFF05 /* MMSCKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFB1246F31AD00DCFF05 /* MMSCKUtilities.m */; };
 		EC31CFCC246F31AE00DCFF05 /* CKModifyRecordsOperation+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFB2246F31AE00DCFF05 /* CKModifyRecordsOperation+MMS.m */; };
 		EC31CFCD246F31AE00DCFF05 /* CKOperation+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFB3246F31AE00DCFF05 /* CKOperation+MMS.m */; };
-		EC31CFCE246F31AE00DCFF05 /* CKModifyRecordsOperation+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFB4246F31AE00DCFF05 /* CKModifyRecordsOperation+MMS.h */; };
-		EC31CFCF246F31AE00DCFF05 /* CKFetchRecordZoneChangesOperation+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFB5246F31AE00DCFF05 /* CKFetchRecordZoneChangesOperation+MMS.h */; };
+		EC31CFCE246F31AE00DCFF05 /* CKModifyRecordsOperation+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFB4246F31AE00DCFF05 /* CKModifyRecordsOperation+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31CFCF246F31AE00DCFF05 /* CKFetchRecordZoneChangesOperation+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFB5246F31AE00DCFF05 /* CKFetchRecordZoneChangesOperation+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31CFD0246F31AE00DCFF05 /* CKRecordZoneID+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFB6246F31AE00DCFF05 /* CKRecordZoneID+MMS.m */; };
-		EC31CFD1246F31AE00DCFF05 /* CKRecordZoneID+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFB7246F31AE00DCFF05 /* CKRecordZoneID+MMS.h */; };
+		EC31CFD1246F31AE00DCFF05 /* CKRecordZoneID+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFB7246F31AE00DCFF05 /* CKRecordZoneID+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31CFF6246F31E500DCFF05 /* NSEntityDescription+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFD2246F31E300DCFF05 /* NSEntityDescription+MMS.m */; };
 		EC31CFF7246F31E500DCFF05 /* NSManagedObjectContext+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFD3246F31E300DCFF05 /* NSManagedObjectContext+MMS.m */; };
-		EC31CFF9246F31E500DCFF05 /* NSManagedObjectModel+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFD5246F31E300DCFF05 /* NSManagedObjectModel+MMS.h */; };
-		EC31CFFA246F31E500DCFF05 /* MMSPersistentStoreBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFD6246F31E300DCFF05 /* MMSPersistentStoreBridge.h */; };
+		EC31CFF9246F31E500DCFF05 /* NSManagedObjectModel+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFD5246F31E300DCFF05 /* NSManagedObjectModel+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31CFFA246F31E500DCFF05 /* MMSPersistentStoreBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFD6246F31E300DCFF05 /* MMSPersistentStoreBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31CFFB246F31E500DCFF05 /* NSManagedObject+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFD7246F31E300DCFF05 /* NSManagedObject+MMS.m */; };
-		EC31CFFD246F31E500DCFF05 /* NSManagedObjectContext+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFD9246F31E400DCFF05 /* NSManagedObjectContext+MMS.h */; };
+		EC31CFFD246F31E500DCFF05 /* NSManagedObjectContext+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFD9246F31E400DCFF05 /* NSManagedObjectContext+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31CFFE246F31E500DCFF05 /* NSManagedObjectModel+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFDA246F31E400DCFF05 /* NSManagedObjectModel+MMS.m */; };
 		EC31CFFF246F31E500DCFF05 /* NSFetchedResultsController+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFDB246F31E400DCFF05 /* NSFetchedResultsController+MMS.m */; };
-		EC31D000246F31E500DCFF05 /* NSPersistentStoreCoordinator+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFDC246F31E400DCFF05 /* NSPersistentStoreCoordinator+MMS.h */; };
+		EC31D000246F31E500DCFF05 /* NSPersistentStoreCoordinator+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFDC246F31E400DCFF05 /* NSPersistentStoreCoordinator+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D001246F31E500DCFF05 /* MMSStackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFDD246F31E400DCFF05 /* MMSStackManager.m */; };
-		EC31D004246F31E500DCFF05 /* NSPersistentStoreCoordinator+MMSPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE0246F31E400DCFF05 /* NSPersistentStoreCoordinator+MMSPrivate.h */; };
-		EC31D005246F31E500DCFF05 /* MMSManagedObjectChangeController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE1246F31E400DCFF05 /* MMSManagedObjectChangeController.h */; };
-		EC31D008246F31E500DCFF05 /* NSFetchedResultsController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE4246F31E400DCFF05 /* NSFetchedResultsController+MMS.h */; };
+		EC31D004246F31E500DCFF05 /* NSPersistentStoreCoordinator+MMSPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE0246F31E400DCFF05 /* NSPersistentStoreCoordinator+MMSPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D005246F31E500DCFF05 /* MMSManagedObjectChangeController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE1246F31E400DCFF05 /* MMSManagedObjectChangeController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D008246F31E500DCFF05 /* NSFetchedResultsController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE4246F31E400DCFF05 /* NSFetchedResultsController+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D009246F31E500DCFF05 /* MMSManagedObjectChangeController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFE5246F31E400DCFF05 /* MMSManagedObjectChangeController.m */; };
-		EC31D00A246F31E500DCFF05 /* MMSNSPersistentContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE6246F31E400DCFF05 /* MMSNSPersistentContainer.h */; };
-		EC31D00C246F31E500DCFF05 /* MMSStackManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE8246F31E400DCFF05 /* MMSStackManager.h */; };
-		EC31D00D246F31E500DCFF05 /* MMSObjectViewer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE9246F31E400DCFF05 /* MMSObjectViewer.h */; };
+		EC31D00A246F31E500DCFF05 /* MMSNSPersistentContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE6246F31E400DCFF05 /* MMSNSPersistentContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D00C246F31E500DCFF05 /* MMSStackManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE8246F31E400DCFF05 /* MMSStackManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D00D246F31E500DCFF05 /* MMSObjectViewer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFE9246F31E400DCFF05 /* MMSObjectViewer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D00F246F31E500DCFF05 /* NSPersistentStoreCoordinator+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFEC246F31E400DCFF05 /* NSPersistentStoreCoordinator+MMS.m */; };
-		EC31D011246F31E500DCFF05 /* MMSNSPersistentStoreDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFEE246F31E400DCFF05 /* MMSNSPersistentStoreDescription.h */; };
-		EC31D012246F31E500DCFF05 /* NSEntityDescription+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFEF246F31E400DCFF05 /* NSEntityDescription+MMS.h */; };
+		EC31D011246F31E500DCFF05 /* MMSNSPersistentStoreDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFEE246F31E400DCFF05 /* MMSNSPersistentStoreDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D012246F31E500DCFF05 /* NSEntityDescription+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFEF246F31E400DCFF05 /* NSEntityDescription+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D013246F31E500DCFF05 /* MMSNSPersistentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFF0246F31E400DCFF05 /* MMSNSPersistentContainer.m */; };
 		EC31D015246F31E500DCFF05 /* MMSNSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFF2246F31E400DCFF05 /* MMSNSPersistentStoreDescription.m */; };
-		EC31D017246F31E500DCFF05 /* NSManagedObject+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFF4246F31E400DCFF05 /* NSManagedObject+MMS.h */; };
+		EC31D017246F31E500DCFF05 /* NSManagedObject+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31CFF4246F31E400DCFF05 /* NSManagedObject+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D018246F31E500DCFF05 /* MMSPersistentStoreBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31CFF5246F31E500DCFF05 /* MMSPersistentStoreBridge.m */; };
 		EC31D021246F371C00DCFF05 /* MMSNonBackgroundLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D019246F371C00DCFF05 /* MMSNonBackgroundLocationManager.m */; };
 		EC31D022246F371C00DCFF05 /* CoreLocation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC31D01A246F371C00DCFF05 /* CoreLocation.xcassets */; };
-		EC31D023246F371C00DCFF05 /* CLLocation+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D01B246F371C00DCFF05 /* CLLocation+MMS.h */; };
-		EC31D024246F371C00DCFF05 /* CoreLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D01C246F371C00DCFF05 /* CoreLocation.h */; };
-		EC31D025246F371C00DCFF05 /* CLLocationManager+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D01D246F371C00DCFF05 /* CLLocationManager+MMS.h */; };
+		EC31D023246F371C00DCFF05 /* CLLocation+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D01B246F371C00DCFF05 /* CLLocation+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D024246F371C00DCFF05 /* CoreLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D01C246F371C00DCFF05 /* CoreLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D025246F371C00DCFF05 /* CLLocationManager+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D01D246F371C00DCFF05 /* CLLocationManager+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D026246F371C00DCFF05 /* CLLocation+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D01E246F371C00DCFF05 /* CLLocation+MMS.m */; };
 		EC31D027246F371C00DCFF05 /* CLLocationManager+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D01F246F371C00DCFF05 /* CLLocationManager+MMS.m */; };
-		EC31D028246F371C00DCFF05 /* MMSNonBackgroundLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D020246F371C00DCFF05 /* MMSNonBackgroundLocationManager.h */; };
+		EC31D028246F371C00DCFF05 /* MMSNonBackgroundLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D020246F371C00DCFF05 /* MMSNonBackgroundLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D06A246F379600DCFF05 /* MMSRunLoopOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D029246F379300DCFF05 /* MMSRunLoopOperation.m */; };
 		EC31D06B246F379600DCFF05 /* NSProcessInfo+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D02A246F379300DCFF05 /* NSProcessInfo+MMS.m */; };
 		EC31D06C246F379600DCFF05 /* NSString+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D02B246F379300DCFF05 /* NSString+MMS.m */; };
 		EC31D06D246F379600DCFF05 /* NSObject+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D02C246F379300DCFF05 /* NSObject+MMS.m */; };
-		EC31D06E246F379600DCFF05 /* NSOperationQueue+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D02D246F379400DCFF05 /* NSOperationQueue+MMS.h */; };
-		EC31D06F246F379600DCFF05 /* NSHTTPURLResponse+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D02E246F379400DCFF05 /* NSHTTPURLResponse+MMS.h */; };
+		EC31D06E246F379600DCFF05 /* NSOperationQueue+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D02D246F379400DCFF05 /* NSOperationQueue+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D06F246F379600DCFF05 /* NSHTTPURLResponse+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D02E246F379400DCFF05 /* NSHTTPURLResponse+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D070246F379600DCFF05 /* NSUUID+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D02F246F379400DCFF05 /* NSUUID+MMS.m */; };
-		EC31D071246F379600DCFF05 /* MMSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D030246F379400DCFF05 /* MMSReachability.h */; };
+		EC31D071246F379600DCFF05 /* MMSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D030246F379400DCFF05 /* MMSReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D072246F379600DCFF05 /* NSMutableURLRequest+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D031246F379400DCFF05 /* NSMutableURLRequest+MMS.m */; };
-		EC31D073246F379600DCFF05 /* MMSQueueOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D032246F379400DCFF05 /* MMSQueueOperation.h */; };
+		EC31D073246F379600DCFF05 /* MMSQueueOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D032246F379400DCFF05 /* MMSQueueOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D074246F379600DCFF05 /* NSDictionary+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D033246F379400DCFF05 /* NSDictionary+MMS.m */; };
-		EC31D075246F379600DCFF05 /* MMSRunLoopOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D034246F379400DCFF05 /* MMSRunLoopOperation.h */; };
-		EC31D076246F379600DCFF05 /* MMSRESTOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D035246F379400DCFF05 /* MMSRESTOperation.h */; };
-		EC31D077246F379600DCFF05 /* NSSet+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D036246F379400DCFF05 /* NSSet+MMS.h */; };
+		EC31D075246F379600DCFF05 /* MMSRunLoopOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D034246F379400DCFF05 /* MMSRunLoopOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D076246F379600DCFF05 /* MMSRESTOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D035246F379400DCFF05 /* MMSRESTOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D077246F379600DCFF05 /* NSSet+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D036246F379400DCFF05 /* NSSet+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D078246F379600DCFF05 /* MMSHTTPError.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D037246F379400DCFF05 /* MMSHTTPError.m */; };
-		EC31D079246F379600DCFF05 /* MMSHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D038246F379400DCFF05 /* MMSHTTP.h */; };
-		EC31D07A246F379600DCFF05 /* MMSUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D039246F379400DCFF05 /* MMSUtilities.h */; };
-		EC31D07B246F379600DCFF05 /* NSDate+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03A246F379400DCFF05 /* NSDate+MMS.h */; };
-		EC31D07C246F379600DCFF05 /* MMSRESTOperationSubclass.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03B246F379400DCFF05 /* MMSRESTOperationSubclass.h */; };
-		EC31D07D246F379600DCFF05 /* MMSBatchRESTOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03C246F379400DCFF05 /* MMSBatchRESTOperation.h */; };
-		EC31D07E246F379600DCFF05 /* NSObject+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03D246F379400DCFF05 /* NSObject+MMS.h */; };
-		EC31D07F246F379600DCFF05 /* NSURLSessionDataTask+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03E246F379400DCFF05 /* NSURLSessionDataTask+MMS.h */; };
-		EC31D080246F379600DCFF05 /* MMSError_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03F246F379400DCFF05 /* MMSError_Internal.h */; };
+		EC31D079246F379600DCFF05 /* MMSHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D038246F379400DCFF05 /* MMSHTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D07A246F379600DCFF05 /* MMSUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D039246F379400DCFF05 /* MMSUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D07B246F379600DCFF05 /* NSDate+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03A246F379400DCFF05 /* NSDate+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D07C246F379600DCFF05 /* MMSRESTOperationSubclass.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03B246F379400DCFF05 /* MMSRESTOperationSubclass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D07D246F379600DCFF05 /* MMSBatchRESTOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03C246F379400DCFF05 /* MMSBatchRESTOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D07E246F379600DCFF05 /* NSObject+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03D246F379400DCFF05 /* NSObject+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D07F246F379600DCFF05 /* NSURLSessionDataTask+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03E246F379400DCFF05 /* NSURLSessionDataTask+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D080246F379600DCFF05 /* MMSError_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D03F246F379400DCFF05 /* MMSError_Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D081246F379600DCFF05 /* MMSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D040246F379400DCFF05 /* MMSUtilities.m */; };
 		EC31D082246F379600DCFF05 /* NSException+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D041246F379400DCFF05 /* NSException+MMS.m */; };
 		EC31D083246F379600DCFF05 /* MMSHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D042246F379400DCFF05 /* MMSHTTP.m */; };
-		EC31D084246F379600DCFF05 /* NSMutableDictionary+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D043246F379400DCFF05 /* NSMutableDictionary+MMS.h */; };
+		EC31D084246F379600DCFF05 /* NSMutableDictionary+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D043246F379400DCFF05 /* NSMutableDictionary+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D085246F379600DCFF05 /* NSURL+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D044246F379400DCFF05 /* NSURL+MMS.m */; };
-		EC31D086246F379600DCFF05 /* NSMutableURLRequest+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D045246F379400DCFF05 /* NSMutableURLRequest+MMS.h */; };
-		EC31D087246F379600DCFF05 /* Foundation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D046246F379400DCFF05 /* Foundation.h */; };
+		EC31D086246F379600DCFF05 /* NSMutableURLRequest+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D045246F379400DCFF05 /* NSMutableURLRequest+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D087246F379600DCFF05 /* Foundation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D046246F379400DCFF05 /* Foundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D088246F379600DCFF05 /* MMSAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D047246F379400DCFF05 /* MMSAsyncOperation.m */; };
-		EC31D089246F379600DCFF05 /* NSProcessInfo+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D048246F379500DCFF05 /* NSProcessInfo+MMS.h */; };
-		EC31D08A246F379600DCFF05 /* NSUUID+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D049246F379500DCFF05 /* NSUUID+MMS.h */; };
-		EC31D08B246F379600DCFF05 /* MMSAsyncOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D04A246F379500DCFF05 /* MMSAsyncOperation.h */; };
+		EC31D089246F379600DCFF05 /* NSProcessInfo+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D048246F379500DCFF05 /* NSProcessInfo+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D08A246F379600DCFF05 /* NSUUID+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D049246F379500DCFF05 /* NSUUID+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D08B246F379600DCFF05 /* MMSAsyncOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D04A246F379500DCFF05 /* MMSAsyncOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D08C246F379600DCFF05 /* NSURLSessionDataTask+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D04B246F379500DCFF05 /* NSURLSessionDataTask+MMS.m */; };
 		EC31D08D246F379600DCFF05 /* MMSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D04C246F379500DCFF05 /* MMSReachability.m */; };
-		EC31D08E246F379600DCFF05 /* NSString+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D04D246F379500DCFF05 /* NSString+MMS.h */; };
+		EC31D08E246F379600DCFF05 /* NSString+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D04D246F379500DCFF05 /* NSString+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D08F246F379600DCFF05 /* NSMutableDictionary+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D04E246F379500DCFF05 /* NSMutableDictionary+MMS.m */; };
-		EC31D090246F379600DCFF05 /* NSArray+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D04F246F379500DCFF05 /* NSArray+MMS.h */; };
-		EC31D091246F379600DCFF05 /* MMSError.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D050246F379500DCFF05 /* MMSError.h */; };
-		EC31D092246F379600DCFF05 /* NSError+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D051246F379500DCFF05 /* NSError+MMS.h */; };
+		EC31D090246F379600DCFF05 /* NSArray+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D04F246F379500DCFF05 /* NSArray+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D091246F379600DCFF05 /* MMSError.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D050246F379500DCFF05 /* MMSError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D092246F379600DCFF05 /* NSError+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D051246F379500DCFF05 /* NSError+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D093246F379700DCFF05 /* NSError+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D052246F379500DCFF05 /* NSError+MMS.m */; };
 		EC31D094246F379700DCFF05 /* NSSet+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D053246F379500DCFF05 /* NSSet+MMS.m */; };
 		EC31D095246F379700DCFF05 /* NSOperationQueue+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D054246F379500DCFF05 /* NSOperationQueue+MMS.m */; };
 		EC31D096246F379700DCFF05 /* MMSSelectorDelayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D055246F379500DCFF05 /* MMSSelectorDelayer.m */; };
 		EC31D097246F379700DCFF05 /* NSHTTPURLResponse+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D056246F379500DCFF05 /* NSHTTPURLResponse+MMS.m */; };
-		EC31D098246F379700DCFF05 /* MMSSelectorDelayer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D057246F379500DCFF05 /* MMSSelectorDelayer.h */; };
+		EC31D098246F379700DCFF05 /* MMSSelectorDelayer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D057246F379500DCFF05 /* MMSSelectorDelayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D09A246F379700DCFF05 /* NSURLSession+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D059246F379500DCFF05 /* NSURLSession+MMS.m */; };
 		EC31D09B246F379700DCFF05 /* MMSBatchRESTOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D05A246F379600DCFF05 /* MMSBatchRESTOperation.m */; };
-		EC31D09C246F379700DCFF05 /* MMSURLSessionTaskOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D05B246F379600DCFF05 /* MMSURLSessionTaskOperation.h */; };
+		EC31D09C246F379700DCFF05 /* MMSURLSessionTaskOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D05B246F379600DCFF05 /* MMSURLSessionTaskOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D09D246F379700DCFF05 /* MMSURLSessionTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D05C246F379600DCFF05 /* MMSURLSessionTaskOperation.m */; };
 		EC31D09E246F379700DCFF05 /* MMSError.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D05D246F379600DCFF05 /* MMSError.m */; };
-		EC31D09F246F379700DCFF05 /* MMSHTTPError.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D05E246F379600DCFF05 /* MMSHTTPError.h */; };
-		EC31D0A0246F379700DCFF05 /* NSURL+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D05F246F379600DCFF05 /* NSURL+MMS.h */; };
+		EC31D09F246F379700DCFF05 /* MMSHTTPError.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D05E246F379600DCFF05 /* MMSHTTPError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D0A0246F379700DCFF05 /* NSURL+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D05F246F379600DCFF05 /* NSURL+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D0A1246F379700DCFF05 /* NSUndoManager+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D060246F379600DCFF05 /* NSUndoManager+MMS.m */; };
 		EC31D0A2246F379700DCFF05 /* NSArray+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D061246F379600DCFF05 /* NSArray+MMS.m */; };
-		EC31D0A3246F379700DCFF05 /* NSException+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D062246F379600DCFF05 /* NSException+MMS.h */; };
+		EC31D0A3246F379700DCFF05 /* NSException+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D062246F379600DCFF05 /* NSException+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D0A4246F379700DCFF05 /* MMSRESTOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D063246F379600DCFF05 /* MMSRESTOperation.m */; };
-		EC31D0A5246F379700DCFF05 /* NSUndoManager+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D064246F379600DCFF05 /* NSUndoManager+MMS.h */; };
-		EC31D0A6246F379700DCFF05 /* Foundation_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D065246F379600DCFF05 /* Foundation_Private.h */; };
-		EC31D0A7246F379700DCFF05 /* NSDictionary+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D066246F379600DCFF05 /* NSDictionary+MMS.h */; };
-		EC31D0A8246F379700DCFF05 /* NSURLSession+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D067246F379600DCFF05 /* NSURLSession+MMS.h */; };
+		EC31D0A5246F379700DCFF05 /* NSUndoManager+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D064246F379600DCFF05 /* NSUndoManager+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D0A6246F379700DCFF05 /* Foundation_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D065246F379600DCFF05 /* Foundation_Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D0A7246F379700DCFF05 /* NSDictionary+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D066246F379600DCFF05 /* NSDictionary+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D0A8246F379700DCFF05 /* NSURLSession+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D067246F379600DCFF05 /* NSURLSession+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D0A9246F379700DCFF05 /* NSDate+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D068246F379600DCFF05 /* NSDate+MMS.m */; };
 		EC31D0AA246F379700DCFF05 /* MMSQueueOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D069246F379600DCFF05 /* MMSQueueOperation.m */; };
-		EC31D12B246FEAF400DCFF05 /* MMSSplitViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0CD246FEAF000DCFF05 /* MMSSplitViewController.h */; };
+		EC31D12B246FEAF400DCFF05 /* MMSSplitViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0CD246FEAF000DCFF05 /* MMSSplitViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D12C246FEAF400DCFF05 /* UIViewController+MMSShowing.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0CE246FEAF000DCFF05 /* UIViewController+MMSShowing.m */; };
-		EC31D12D246FEAF400DCFF05 /* MMSProgressViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0CF246FEAF000DCFF05 /* MMSProgressViewController.h */; };
-		EC31D12E246FEAF400DCFF05 /* MMSMultilineTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0D0246FEAF000DCFF05 /* MMSMultilineTableCell.h */; };
-		EC31D12F246FEAF400DCFF05 /* MMSLogInViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0D1246FEAF000DCFF05 /* MMSLogInViewController.h */; };
+		EC31D12D246FEAF400DCFF05 /* MMSProgressViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0CF246FEAF000DCFF05 /* MMSProgressViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D12E246FEAF400DCFF05 /* MMSMultilineTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0D0246FEAF000DCFF05 /* MMSMultilineTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D12F246FEAF400DCFF05 /* MMSLogInViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0D1246FEAF000DCFF05 /* MMSLogInViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D130246FEAF400DCFF05 /* MMSFetchedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0D2246FEAF000DCFF05 /* MMSFetchedPageViewController.m */; };
 		EC31D131246FEAF400DCFF05 /* MMSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0D3246FEAF000DCFF05 /* MMSTableView.m */; };
-		EC31D132246FEAF400DCFF05 /* MMSMasterNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0D4246FEAF000DCFF05 /* MMSMasterNavigationController.h */; };
+		EC31D132246FEAF400DCFF05 /* MMSMasterNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0D4246FEAF000DCFF05 /* MMSMasterNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D133246FEAF400DCFF05 /* MMSSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0D5246FEAF000DCFF05 /* MMSSignUpViewController.m */; };
 		EC31D134246FEAF400DCFF05 /* MMSMultilineTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0D6246FEAF000DCFF05 /* MMSMultilineTableCell.m */; };
 		EC31D135246FEAF400DCFF05 /* UINavigationController+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0D7246FEAF000DCFF05 /* UINavigationController+MMS.m */; };
 		EC31D136246FEAF400DCFF05 /* MMSAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC31D0D8246FEAF000DCFF05 /* MMSAccount.storyboard */; };
-		EC31D137246FEAF400DCFF05 /* MMSEditableTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0D9246FEAF000DCFF05 /* MMSEditableTableCell.h */; };
+		EC31D137246FEAF400DCFF05 /* MMSEditableTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0D9246FEAF000DCFF05 /* MMSEditableTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D138246FEAF400DCFF05 /* MMSSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0DA246FEAF000DCFF05 /* MMSSplitViewController.m */; };
-		EC31D139246FEAF400DCFF05 /* UIBarButtonItem+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0DB246FEAF000DCFF05 /* UIBarButtonItem+MMS.h */; };
+		EC31D139246FEAF400DCFF05 /* UIBarButtonItem+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0DB246FEAF000DCFF05 /* UIBarButtonItem+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D13A246FEAF400DCFF05 /* UIAlertView+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0DC246FEAF000DCFF05 /* UIAlertView+MMS.m */; };
 		EC31D13B246FEAF400DCFF05 /* UINavigationBar+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0DD246FEAF000DCFF05 /* UINavigationBar+MMS.m */; };
-		EC31D13C246FEAF400DCFF05 /* UINavigationItem+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0DE246FEAF000DCFF05 /* UINavigationItem+MMS.h */; };
+		EC31D13C246FEAF400DCFF05 /* UINavigationItem+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0DE246FEAF000DCFF05 /* UINavigationItem+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D13D246FEAF400DCFF05 /* MMSFetchedPageContainerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0DF246FEAF000DCFF05 /* MMSFetchedPageContainerDataSource.m */; };
-		EC31D13E246FEAF400DCFF05 /* UIResponder+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E0246FEAF000DCFF05 /* UIResponder+MMS.h */; };
+		EC31D13E246FEAF400DCFF05 /* UIResponder+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E0246FEAF000DCFF05 /* UIResponder+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D13F246FEAF400DCFF05 /* MMSDictionaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0E1246FEAF000DCFF05 /* MMSDictionaryViewController.m */; };
-		EC31D140246FEAF400DCFF05 /* UISplitViewController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E2246FEAF000DCFF05 /* UISplitViewController+MMS.h */; };
-		EC31D141246FEAF400DCFF05 /* UIAlertView+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E3246FEAF000DCFF05 /* UIAlertView+MMS.h */; };
+		EC31D140246FEAF400DCFF05 /* UISplitViewController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E2246FEAF000DCFF05 /* UISplitViewController+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D141246FEAF400DCFF05 /* UIAlertView+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E3246FEAF000DCFF05 /* UIAlertView+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D142246FEAF400DCFF05 /* MMSAnimationFixStoryboardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0E4246FEAF000DCFF05 /* MMSAnimationFixStoryboardSegue.m */; };
 		EC31D143246FEAF400DCFF05 /* MMSDetailViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0E5246FEAF000DCFF05 /* MMSDetailViewManager.m */; };
 		EC31D144246FEAF400DCFF05 /* MMSMasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0E6246FEAF000DCFF05 /* MMSMasterTableViewController.m */; };
-		EC31D145246FEAF400DCFF05 /* MMSSignUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E7246FEAF000DCFF05 /* MMSSignUpViewController.h */; };
-		EC31D146246FEAF400DCFF05 /* MMSFetchedTableDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E8246FEAF000DCFF05 /* MMSFetchedTableDataSource.h */; };
-		EC31D147246FEAF400DCFF05 /* UITabBar+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E9246FEAF000DCFF05 /* UITabBar+MMS.h */; };
-		EC31D148246FEAF400DCFF05 /* UITableView+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0EA246FEAF000DCFF05 /* UITableView+MMS.h */; };
-		EC31D149246FEAF400DCFF05 /* UITableViewController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0EB246FEAF100DCFF05 /* UITableViewController+MMS.h */; };
+		EC31D145246FEAF400DCFF05 /* MMSSignUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E7246FEAF000DCFF05 /* MMSSignUpViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D146246FEAF400DCFF05 /* MMSFetchedTableDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E8246FEAF000DCFF05 /* MMSFetchedTableDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D147246FEAF400DCFF05 /* UITabBar+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0E9246FEAF000DCFF05 /* UITabBar+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D148246FEAF400DCFF05 /* UITableView+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0EA246FEAF000DCFF05 /* UITableView+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D149246FEAF400DCFF05 /* UITableViewController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0EB246FEAF100DCFF05 /* UITableViewController+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D14A246FEAF400DCFF05 /* UITextField+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0EC246FEAF100DCFF05 /* UITextField+MMS.m */; };
 		EC31D14B246FEAF400DCFF05 /* MMSFetchedPageViewControllerDelegate2.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0ED246FEAF100DCFF05 /* MMSFetchedPageViewControllerDelegate2.m */; };
-		EC31D14C246FEAF400DCFF05 /* MMSTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0EE246FEAF100DCFF05 /* MMSTableView.h */; };
-		EC31D14D246FEAF400DCFF05 /* MMSAccountViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0EF246FEAF100DCFF05 /* MMSAccountViewController.h */; };
+		EC31D14C246FEAF400DCFF05 /* MMSTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0EE246FEAF100DCFF05 /* MMSTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D14D246FEAF400DCFF05 /* MMSAccountViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0EF246FEAF100DCFF05 /* MMSAccountViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D14E246FEAF400DCFF05 /* UINavigationItem+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0F0246FEAF100DCFF05 /* UINavigationItem+MMS.m */; };
-		EC31D14F246FEAF400DCFF05 /* UITableViewCell+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0F1246FEAF100DCFF05 /* UITableViewCell+MMS.h */; };
-		EC31D150246FEAF400DCFF05 /* MMSBigSplitViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0F2246FEAF100DCFF05 /* MMSBigSplitViewController.h */; };
-		EC31D151246FEAF400DCFF05 /* MMSRootNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0F3246FEAF100DCFF05 /* MMSRootNavigationController.h */; };
+		EC31D14F246FEAF400DCFF05 /* UITableViewCell+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0F1246FEAF100DCFF05 /* UITableViewCell+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D150246FEAF400DCFF05 /* MMSBigSplitViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0F2246FEAF100DCFF05 /* MMSBigSplitViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D151246FEAF400DCFF05 /* MMSRootNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0F3246FEAF100DCFF05 /* MMSRootNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D152246FEAF400DCFF05 /* UITableViewCell+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0F4246FEAF100DCFF05 /* UITableViewCell+MMS.m */; };
 		EC31D153246FEAF400DCFF05 /* MMSFetchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0F5246FEAF100DCFF05 /* MMSFetchedTableViewController.m */; };
 		EC31D154246FEAF400DCFF05 /* MMSMasterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0F6246FEAF100DCFF05 /* MMSMasterNavigationController.m */; };
 		EC31D155246FEAF400DCFF05 /* MMSFullerWebViewController.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC31D0F7246FEAF100DCFF05 /* MMSFullerWebViewController.xcassets */; };
-		EC31D156246FEAF400DCFF05 /* MMSTableViewCellObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0F8246FEAF100DCFF05 /* MMSTableViewCellObject.h */; };
-		EC31D157246FEAF400DCFF05 /* UIView+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0F9246FEAF100DCFF05 /* UIView+MMS.h */; };
-		EC31D158246FEAF400DCFF05 /* MMSAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0FA246FEAF100DCFF05 /* MMSAlertController.h */; };
-		EC31D159246FEAF400DCFF05 /* UIImage+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0FB246FEAF100DCFF05 /* UIImage+MMS.h */; };
-		EC31D15A246FEAF400DCFF05 /* MMSFullerWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0FC246FEAF100DCFF05 /* MMSFullerWebViewController.h */; };
-		EC31D15B246FEAF400DCFF05 /* MMSFetchedTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0FD246FEAF100DCFF05 /* MMSFetchedTableViewController.h */; };
-		EC31D15C246FEAF400DCFF05 /* MMSFetchedPageContainerDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0FE246FEAF200DCFF05 /* MMSFetchedPageContainerDataSource.h */; };
+		EC31D156246FEAF400DCFF05 /* MMSTableViewCellObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0F8246FEAF100DCFF05 /* MMSTableViewCellObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D157246FEAF400DCFF05 /* UIView+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0F9246FEAF100DCFF05 /* UIView+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D158246FEAF400DCFF05 /* MMSAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0FA246FEAF100DCFF05 /* MMSAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D159246FEAF400DCFF05 /* UIImage+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0FB246FEAF100DCFF05 /* UIImage+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D15A246FEAF400DCFF05 /* MMSFullerWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0FC246FEAF100DCFF05 /* MMSFullerWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D15B246FEAF400DCFF05 /* MMSFetchedTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0FD246FEAF100DCFF05 /* MMSFetchedTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D15C246FEAF400DCFF05 /* MMSFetchedPageContainerDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D0FE246FEAF200DCFF05 /* MMSFetchedPageContainerDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D15D246FEAF400DCFF05 /* MMSAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D0FF246FEAF200DCFF05 /* MMSAlertController.m */; };
-		EC31D15E246FEAF400DCFF05 /* MMSAnimationFixStoryboardSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D100246FEAF200DCFF05 /* MMSAnimationFixStoryboardSegue.h */; };
-		EC31D15F246FEAF400DCFF05 /* MMSFetchedPageViewControllerDelegate2.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D101246FEAF200DCFF05 /* MMSFetchedPageViewControllerDelegate2.h */; };
+		EC31D15E246FEAF400DCFF05 /* MMSAnimationFixStoryboardSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D100246FEAF200DCFF05 /* MMSAnimationFixStoryboardSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D15F246FEAF400DCFF05 /* MMSFetchedPageViewControllerDelegate2.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D101246FEAF200DCFF05 /* MMSFetchedPageViewControllerDelegate2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D160246FEAF400DCFF05 /* UIResponder+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D102246FEAF200DCFF05 /* UIResponder+MMS.m */; };
 		EC31D161246FEAF400DCFF05 /* UIView+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D103246FEAF200DCFF05 /* UIView+MMS.m */; };
 		EC31D162246FEAF400DCFF05 /* MMSProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D104246FEAF200DCFF05 /* MMSProgressViewController.m */; };
 		EC31D163246FEAF400DCFF05 /* MMSBigSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D105246FEAF200DCFF05 /* MMSBigSplitViewController.m */; };
 		EC31D164246FEAF400DCFF05 /* UITableViewController+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D106246FEAF200DCFF05 /* UITableViewController+MMS.m */; };
 		EC31D165246FEAF400DCFF05 /* UISplitViewController+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D107246FEAF200DCFF05 /* UISplitViewController+MMS.m */; };
-		EC31D166246FEAF400DCFF05 /* UIViewController+MMSShowing.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D108246FEAF200DCFF05 /* UIViewController+MMSShowing.h */; };
-		EC31D167246FEAF400DCFF05 /* MMSCompletionStoryboardSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D109246FEAF200DCFF05 /* MMSCompletionStoryboardSegue.h */; };
-		EC31D168246FEAF400DCFF05 /* MMSExternalWebActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D10A246FEAF200DCFF05 /* MMSExternalWebActivity.h */; };
-		EC31D169246FEAF400DCFF05 /* MMSFlipController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D10B246FEAF200DCFF05 /* MMSFlipController.h */; };
+		EC31D166246FEAF400DCFF05 /* UIViewController+MMSShowing.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D108246FEAF200DCFF05 /* UIViewController+MMSShowing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D167246FEAF400DCFF05 /* MMSCompletionStoryboardSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D109246FEAF200DCFF05 /* MMSCompletionStoryboardSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D168246FEAF400DCFF05 /* MMSExternalWebActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D10A246FEAF200DCFF05 /* MMSExternalWebActivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D169246FEAF400DCFF05 /* MMSFlipController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D10B246FEAF200DCFF05 /* MMSFlipController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D16A246FEAF400DCFF05 /* MMSLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D10C246FEAF200DCFF05 /* MMSLogInViewController.m */; };
-		EC31D16B246FEAF400DCFF05 /* MMSLongRunningTaskController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D10D246FEAF200DCFF05 /* MMSLongRunningTaskController.h */; };
+		EC31D16B246FEAF400DCFF05 /* MMSLongRunningTaskController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D10D246FEAF200DCFF05 /* MMSLongRunningTaskController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D16C246FEAF400DCFF05 /* MMSLongRunningTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D10E246FEAF200DCFF05 /* MMSLongRunningTaskController.m */; };
-		EC31D16D246FEAF400DCFF05 /* MMSDictionaryViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D10F246FEAF200DCFF05 /* MMSDictionaryViewController.h */; };
-		EC31D16E246FEAF400DCFF05 /* UIDevice+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D110246FEAF300DCFF05 /* UIDevice+MMS.h */; };
-		EC31D16F246FEAF400DCFF05 /* UINavigationController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D111246FEAF300DCFF05 /* UINavigationController+MMS.h */; };
+		EC31D16D246FEAF400DCFF05 /* MMSDictionaryViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D10F246FEAF200DCFF05 /* MMSDictionaryViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D16E246FEAF400DCFF05 /* UIDevice+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D110246FEAF300DCFF05 /* UIDevice+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D16F246FEAF400DCFF05 /* UINavigationController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D111246FEAF300DCFF05 /* UINavigationController+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D170246FEAF400DCFF05 /* UITableView+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D112246FEAF300DCFF05 /* UITableView+MMS.m */; };
 		EC31D171246FEAF400DCFF05 /* UIBarButtonItem+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D113246FEAF300DCFF05 /* UIBarButtonItem+MMS.m */; };
-		EC31D172246FEAF400DCFF05 /* MMSDetailViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D114246FEAF300DCFF05 /* MMSDetailViewManager.h */; };
+		EC31D172246FEAF400DCFF05 /* MMSDetailViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D114246FEAF300DCFF05 /* MMSDetailViewManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D173246FEAF400DCFF05 /* MMSFlipController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D115246FEAF300DCFF05 /* MMSFlipController.m */; };
 		EC31D174246FEAF400DCFF05 /* MMSSplitViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D116246FEAF300DCFF05 /* MMSSplitViewController+Private.h */; };
 		EC31D175246FEAF400DCFF05 /* UIAlertController+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D117246FEAF300DCFF05 /* UIAlertController+MMS.m */; };
 		EC31D176246FEAF400DCFF05 /* UITabBar+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D118246FEAF300DCFF05 /* UITabBar+MMS.m */; };
-		EC31D177246FEAF400DCFF05 /* MMSFetchedPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D119246FEAF300DCFF05 /* MMSFetchedPageViewController.h */; };
+		EC31D177246FEAF400DCFF05 /* MMSFetchedPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D119246FEAF300DCFF05 /* MMSFetchedPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D178246FEAF400DCFF05 /* UIImage+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D11A246FEAF300DCFF05 /* UIImage+MMS.m */; };
 		EC31D179246FEAF400DCFF05 /* MMSFetchedTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D11B246FEAF300DCFF05 /* MMSFetchedTableDataSource.m */; };
 		EC31D17A246FEAF400DCFF05 /* MMSExternalWebActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D11C246FEAF300DCFF05 /* MMSExternalWebActivity.m */; };
-		EC31D17B246FEAF400DCFF05 /* UIAlertController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D11D246FEAF300DCFF05 /* UIAlertController+MMS.h */; };
+		EC31D17B246FEAF400DCFF05 /* UIAlertController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D11D246FEAF300DCFF05 /* UIAlertController+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D17C246FEAF400DCFF05 /* UIDevice+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D11E246FEAF300DCFF05 /* UIDevice+MMS.m */; };
 		EC31D17D246FEAF400DCFF05 /* MMSCompletionStoryboardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D11F246FEAF300DCFF05 /* MMSCompletionStoryboardSegue.m */; };
-		EC31D17E246FEAF400DCFF05 /* MMSMasterTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D120246FEAF300DCFF05 /* MMSMasterTableViewController.h */; };
+		EC31D17E246FEAF400DCFF05 /* MMSMasterTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D120246FEAF300DCFF05 /* MMSMasterTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D17F246FEAF400DCFF05 /* MMSAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D121246FEAF300DCFF05 /* MMSAccountViewController.m */; };
-		EC31D180246FEAF400DCFF05 /* UINavigationBar+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D122246FEAF300DCFF05 /* UINavigationBar+MMS.h */; };
+		EC31D180246FEAF400DCFF05 /* UINavigationBar+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D122246FEAF300DCFF05 /* UINavigationBar+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D181246FEAF400DCFF05 /* UIViewController+MMS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D123246FEAF400DCFF05 /* UIViewController+MMS.m */; };
 		EC31D182246FEAF400DCFF05 /* MMSRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D124246FEAF400DCFF05 /* MMSRootNavigationController.m */; };
 		EC31D183246FEAF400DCFF05 /* MMSEditableTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D125246FEAF400DCFF05 /* MMSEditableTableCell.m */; };
-		EC31D184246FEAF400DCFF05 /* UIViewController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D126246FEAF400DCFF05 /* UIViewController+MMS.h */; };
-		EC31D185246FEAF400DCFF05 /* UITextField+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D127246FEAF400DCFF05 /* UITextField+MMS.h */; };
+		EC31D184246FEAF400DCFF05 /* UIViewController+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D126246FEAF400DCFF05 /* UIViewController+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC31D185246FEAF400DCFF05 /* UITextField+MMS.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D127246FEAF400DCFF05 /* UITextField+MMS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D186246FEAF400DCFF05 /* MMSFullerWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D128246FEAF400DCFF05 /* MMSFullerWebViewController.m */; };
-		EC31D187246FEAF400DCFF05 /* UIViewController+MMSDetailItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D129246FEAF400DCFF05 /* UIViewController+MMSDetailItem.h */; };
+		EC31D187246FEAF400DCFF05 /* UIViewController+MMSDetailItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D129246FEAF400DCFF05 /* UIViewController+MMSDetailItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D188246FEAF400DCFF05 /* UIViewController+MMSDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D12A246FEAF400DCFF05 /* UIViewController+MMSDetailItem.m */; };
-		EC31D18A246FEFF200DCFF05 /* MMSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D189246FEFF100DCFF05 /* MMSDefines.h */; };
+		EC31D18A246FEFF200DCFF05 /* MMSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D189246FEFF100DCFF05 /* MMSDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D18D246FF10600DCFF05 /* MMSCDError.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D18B246FF10600DCFF05 /* MMSCDError.m */; };
-		EC31D18E246FF10600DCFF05 /* MMSCDError.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D18C246FF10600DCFF05 /* MMSCDError.h */; };
+		EC31D18E246FF10600DCFF05 /* MMSCDError.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D18C246FF10600DCFF05 /* MMSCDError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,7 +301,7 @@
 		EC31CFA0246F31AD00DCFF05 /* MMSUserSpecificRecordID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSUserSpecificRecordID.m; sourceTree = "<group>"; };
 		EC31CFA1246F31AD00DCFF05 /* CKReference+MMS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKReference+MMS.m"; sourceTree = "<group>"; };
 		EC31CFA2246F31AD00DCFF05 /* CloudKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudKit.h; sourceTree = "<group>"; };
-		EC31CFA3246F31AD00DCFF05 /* MMSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSUtilities.h; sourceTree = "<group>"; };
+		EC31CFA3246F31AD00DCFF05 /* MMSCKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSCKUtilities.h; sourceTree = "<group>"; };
 		EC31CFA4246F31AD00DCFF05 /* MMSShareSystemFieldsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSShareSystemFieldsTransformer.h; sourceTree = "<group>"; };
 		EC31CFA5246F31AD00DCFF05 /* CKReference+MMS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKReference+MMS.h"; sourceTree = "<group>"; };
 		EC31CFA6246F31AD00DCFF05 /* MMSHasDatabaseScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSHasDatabaseScope.h; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 		EC31CFAE246F31AD00DCFF05 /* MMSShareSystemFieldsTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSShareSystemFieldsTransformer.m; sourceTree = "<group>"; };
 		EC31CFAF246F31AD00DCFF05 /* CKOperation+MMS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKOperation+MMS.h"; sourceTree = "<group>"; };
 		EC31CFB0246F31AD00DCFF05 /* CKRecord+MMS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKRecord+MMS.m"; sourceTree = "<group>"; };
-		EC31CFB1246F31AD00DCFF05 /* MMSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSUtilities.m; sourceTree = "<group>"; };
+		EC31CFB1246F31AD00DCFF05 /* MMSCKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSCKUtilities.m; sourceTree = "<group>"; };
 		EC31CFB2246F31AE00DCFF05 /* CKModifyRecordsOperation+MMS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKModifyRecordsOperation+MMS.m"; sourceTree = "<group>"; };
 		EC31CFB3246F31AE00DCFF05 /* CKOperation+MMS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKOperation+MMS.m"; sourceTree = "<group>"; };
 		EC31CFB4246F31AE00DCFF05 /* CKModifyRecordsOperation+MMS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKModifyRecordsOperation+MMS.h"; sourceTree = "<group>"; };
@@ -630,8 +630,8 @@
 				EC31CFAE246F31AD00DCFF05 /* MMSShareSystemFieldsTransformer.m */,
 				EC31CFAC246F31AD00DCFF05 /* MMSUserSpecificRecordID.h */,
 				EC31CFA0246F31AD00DCFF05 /* MMSUserSpecificRecordID.m */,
-				EC31CFA3246F31AD00DCFF05 /* MMSUtilities.h */,
-				EC31CFB1246F31AD00DCFF05 /* MMSUtilities.m */,
+				EC31CFA3246F31AD00DCFF05 /* MMSCKUtilities.h */,
+				EC31CFB1246F31AD00DCFF05 /* MMSCKUtilities.m */,
 			);
 			path = CloudKit;
 			sourceTree = "<group>";
@@ -678,11 +678,11 @@
 		EC31CE1A246F273300DCFF05 /* CoreLocation */ = {
 			isa = PBXGroup;
 			children = (
+				EC31D01C246F371C00DCFF05 /* CoreLocation.h */,
 				EC31D01B246F371C00DCFF05 /* CLLocation+MMS.h */,
 				EC31D01E246F371C00DCFF05 /* CLLocation+MMS.m */,
 				EC31D01D246F371C00DCFF05 /* CLLocationManager+MMS.h */,
 				EC31D01F246F371C00DCFF05 /* CLLocationManager+MMS.m */,
-				EC31D01C246F371C00DCFF05 /* CoreLocation.h */,
 				EC31D01A246F371C00DCFF05 /* CoreLocation.xcassets */,
 				EC31D020246F371C00DCFF05 /* MMSNonBackgroundLocationManager.h */,
 				EC31D019246F371C00DCFF05 /* MMSNonBackgroundLocationManager.m */,
@@ -879,7 +879,6 @@
 				EC31D180246FEAF400DCFF05 /* UINavigationBar+MMS.h in Headers */,
 				EC31D00C246F31E500DCFF05 /* MMSStackManager.h in Headers */,
 				EC31D15F246FEAF400DCFF05 /* MMSFetchedPageViewControllerDelegate2.h in Headers */,
-				EC31D18E246FF10600DCFF05 /* MMSCDError.h in Headers */,
 				EC31D084246F379600DCFF05 /* NSMutableDictionary+MMS.h in Headers */,
 				EC31D147246FEAF400DCFF05 /* UITabBar+MMS.h in Headers */,
 				EC2B34A2246FF376003833FB /* MMSAnnotationSegue.h in Headers */,
@@ -906,7 +905,6 @@
 				EC31D13E246FEAF400DCFF05 /* UIResponder+MMS.h in Headers */,
 				EC2B34A0246FF376003833FB /* MMSMapTypeBarButtonItem.h in Headers */,
 				EC31D18A246FEFF200DCFF05 /* MMSDefines.h in Headers */,
-				EC31CD56246F263800DCFF05 /* MMShared.h in Headers */,
 				EC31D0A0246F379700DCFF05 /* NSURL+MMS.h in Headers */,
 				EC31D141246FEAF400DCFF05 /* UIAlertView+MMS.h in Headers */,
 				EC2B34A8246FF376003833FB /* MMSAnnotationsTableBarButtonItem.h in Headers */,
@@ -919,7 +917,7 @@
 				EC31D14C246FEAF400DCFF05 /* MMSTableView.h in Headers */,
 				EC31D086246F379600DCFF05 /* NSMutableURLRequest+MMS.h in Headers */,
 				EC31CFF9246F31E500DCFF05 /* NSManagedObjectModel+MMS.h in Headers */,
-				EC31CFBD246F31AE00DCFF05 /* MMSUtilities.h in Headers */,
+				EC31CFBD246F31AE00DCFF05 /* MMSCKUtilities.h in Headers */,
 				EC31CFC2246F31AE00DCFF05 /* MMSRecordSystemFieldsTransformer.h in Headers */,
 				EC31CFCF246F31AE00DCFF05 /* CKFetchRecordZoneChangesOperation+MMS.h in Headers */,
 				EC31D166246FEAF400DCFF05 /* UIViewController+MMSShowing.h in Headers */,
@@ -934,7 +932,6 @@
 				EC31CFFA246F31E500DCFF05 /* MMSPersistentStoreBridge.h in Headers */,
 				EC31CFBE246F31AE00DCFF05 /* MMSShareSystemFieldsTransformer.h in Headers */,
 				EC2B34A5246FF376003833FB /* MMSMapViewController.h in Headers */,
-				EC2B34B8246FF81F003833FB /* NSError+MMSCD.h in Headers */,
 				EC31D00A246F31E500DCFF05 /* MMSNSPersistentContainer.h in Headers */,
 				EC2B34A7246FF376003833FB /* MKMapView+MMS.h in Headers */,
 				EC31CFBC246F31AE00DCFF05 /* CloudKit.h in Headers */,
@@ -960,7 +957,6 @@
 				EC31D172246FEAF400DCFF05 /* MMSDetailViewManager.h in Headers */,
 				EC31D146246FEAF400DCFF05 /* MMSFetchedTableDataSource.h in Headers */,
 				EC31D07E246F379600DCFF05 /* NSObject+MMS.h in Headers */,
-				EC2B34AE246FF649003833FB /* CoreData.h in Headers */,
 				EC31D07A246F379600DCFF05 /* MMSUtilities.h in Headers */,
 				EC31D07B246F379600DCFF05 /* NSDate+MMS.h in Headers */,
 				EC31D14D246FEAF400DCFF05 /* MMSAccountViewController.h in Headers */,
@@ -982,7 +978,6 @@
 				EC31D17B246FEAF400DCFF05 /* UIAlertController+MMS.h in Headers */,
 				EC31D14F246FEAF400DCFF05 /* UITableViewCell+MMS.h in Headers */,
 				EC31D075246F379600DCFF05 /* MMSRunLoopOperation.h in Headers */,
-				EC31D174246FEAF400DCFF05 /* MMSSplitViewController+Private.h in Headers */,
 				EC31D089246F379600DCFF05 /* NSProcessInfo+MMS.h in Headers */,
 				EC31D092246F379600DCFF05 /* NSError+MMS.h in Headers */,
 				EC31D028246F371C00DCFF05 /* MMSNonBackgroundLocationManager.h in Headers */,
@@ -998,6 +993,11 @@
 				EC31D008246F31E500DCFF05 /* NSFetchedResultsController+MMS.h in Headers */,
 				EC31CFC9246F31AE00DCFF05 /* CKOperation+MMS.h in Headers */,
 				EC31D12D246FEAF400DCFF05 /* MMSProgressViewController.h in Headers */,
+				EC31D18E246FF10600DCFF05 /* MMSCDError.h in Headers */,
+				EC31CD56246F263800DCFF05 /* MMShared.h in Headers */,
+				EC2B34B8246FF81F003833FB /* NSError+MMSCD.h in Headers */,
+				EC2B34AE246FF649003833FB /* CoreData.h in Headers */,
+				EC31D174246FEAF400DCFF05 /* MMSSplitViewController+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1145,7 +1145,7 @@
 				EC31D094246F379700DCFF05 /* NSSet+MMS.m in Sources */,
 				EC31D09D246F379700DCFF05 /* MMSURLSessionTaskOperation.m in Sources */,
 				EC31D078246F379600DCFF05 /* MMSHTTPError.m in Sources */,
-				EC31CFCB246F31AE00DCFF05 /* MMSUtilities.m in Sources */,
+				EC31CFCB246F31AE00DCFF05 /* MMSCKUtilities.m in Sources */,
 				EC31D09E246F379700DCFF05 /* MMSError.m in Sources */,
 				EC31D17A246FEAF400DCFF05 /* MMSExternalWebActivity.m in Sources */,
 				EC31D144246FEAF400DCFF05 /* MMSMasterTableViewController.m in Sources */,

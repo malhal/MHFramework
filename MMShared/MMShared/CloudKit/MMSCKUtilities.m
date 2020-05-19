@@ -6,7 +6,7 @@
 //  Copyright © 2017 Malcolm Hall. All rights reserved.
 //
 
-#import "MMSUtilities.h"
+#import "MMSCKUtilities.h"
 
 CKDatabaseScope MMSDatabaseScopeFromString(NSString *s){
     if([s isEqualToString:@"Public"]){

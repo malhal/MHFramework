@@ -6,7 +6,7 @@
 //  Copyright © 2018 Malcolm Hall. All rights reserved.
 //
 #import <UIKit/UIKit.h>
-#import <CoreData.h>
+#import <CoreData/CoreData.h>
 #import <MMShared/MMSDefines.h>
 
 NS_ASSUME_NONNULL_BEGIN

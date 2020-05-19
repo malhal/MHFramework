@@ -8,7 +8,7 @@
 
 #import <CoreData/CoreData.h>
 
-#import <MMShared/MMSError.h>
+#import <MMShared/MMSCDError.h>
 #import <MMShared/MMSStackManager.h>
 #import <MMShared/MMSPersistentStoreBridge.h>
 #import <MMShared/MMSNSPersistentContainer.h>

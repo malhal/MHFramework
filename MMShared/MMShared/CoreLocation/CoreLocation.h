@@ -10,18 +10,17 @@
 
 #import <MMShared/MMSDefines.h>
 
-#import <MMShared/MMSManagedObject.h>
+//#import <MMShared/MMSManagedObject.h>
 #import <MMShared/MMSAnnotationSegue.h>
 #import <MMShared/MMSAnnotationsTableBarButtonItem.h>
 #import <MMShared/MMSEmptySegue.h>
 #import <MMShared/MMSFetchedResultsMapViewController.h>
-#import <MMShared/MMSManagedObject.h>
+//#import <MMShared/MMSLocationManagedObject.h>
 #import <MMShared/MMSMapTypeBarButtonItem.h>
 #import <MMShared/MMSMapViewController.h>
 #import <MMShared/MMSMapTypeBarButtonItem.h>
 
 #import <MMShared/CLLocationManager+MMS.h>
-#import <MMShared/NSPredicate+MMS.h>
 #import <MMShared/MKMapView+MMS.h>
 
 #import <MMShared/MMSNonBackgroundLocationManager.h>

@@ -13,29 +13,29 @@
 
 @implementation NSManagedObjectContext (MMS)
 
-+ (instancetype)mms_defaultContextWithError:(NSError **)error{
-    static NSManagedObjectContext * _defaultManagedObjectContext;
-    if(!_defaultManagedObjectContext){
-        NSPersistentStoreCoordinator* psc = [NSPersistentStoreCoordinator mms_defaultCoordinatorWithError:error];
-        if(!psc){
-            return nil;
-        }
-        _defaultManagedObjectContext = [NSManagedObjectContext.alloc initWithConcurrencyType:NSMainQueueConcurrencyType];
-        _defaultManagedObjectContext.persistentStoreCoordinator = psc;
-    };
-    return _defaultManagedObjectContext;
-}
+//+ (instancetype)mms_defaultContextWithError:(NSError **)error{
+//    static NSManagedObjectContext * _defaultManagedObjectContext;
+//    if(!_defaultManagedObjectContext){
+//        NSPersistentStoreCoordinator* psc = [NSPersistentStoreCoordinator mms_defaultCoordinatorWithError:error];
+//        if(!psc){
+//            return nil;
+//        }
+//        _defaultManagedObjectContext = [NSManagedObjectContext.alloc initWithConcurrencyType:NSMainQueueConcurrencyType];
+//        _defaultManagedObjectContext.persistentStoreCoordinator = psc;
+//    };
+//    return _defaultManagedObjectContext;
+//}
 
-+ (instancetype)mms_defaultContext{
-    NSError *error;
-    NSManagedObjectContext * context = [self mms_defaultContextWithError:&error];
-    if(error){
-        [NSException raise:NSInternalInconsistencyException format:@"Failed to create default context %@", error];
-    }
-    return context;
-}
+//+ (instancetype)mms_defaultContext{
+//    NSError *error;
+//    NSManagedObjectContext * context = [self mms_defaultContextWithError:&error];
+//    if(error){
+//        [NSException raise:NSInternalInconsistencyException format:@"Failed to create default context %@", error];
+//    }
+//    return context;
+//}
 
-- (NSManagedObjectContext *)mms_createChildContext{
+- (NSManagedObjectContext *)mms_newChildContext{
     NSManagedObjectContext *context = [NSManagedObjectContext.alloc initWithConcurrencyType:self.concurrencyType];
     context.parentContext = self;
     return context;
@@ -77,98 +77,98 @@
     return context;
 }
 
-- (NSManagedObject *)mms_existingObjectWithEntityName:(NSString *)entityName dictionary:(NSDictionary *)dictionary error:(NSError **)error{
-    NSPredicate *predicate = [self mms_predicateWithDictionary:dictionary];
-    return [self mms_existingObjectWithEntityName:entityName predicate:predicate error:error];
-}
+//- (NSManagedObject *)mms_existingObjectWithEntityName:(NSString *)entityName dictionary:(NSDictionary *)dictionary error:(NSError **)error{
+//    NSPredicate *predicate = [self mms_predicateWithDictionary:dictionary];
+//    return [self mms_existingObjectWithEntityName:entityName predicate:predicate error:error];
+//}
 
-- (NSManagedObject *)mms_existingObjectWithEntityName:(NSString *)entityName predicate:(NSPredicate *)predicate error:(NSError **)error{
-    NSArray *objects = [self mms_fetchObjectsWithEntityName:entityName predicate:predicate error:error];
-    if(!objects){
-        return nil;
-    }
-    else if(!objects.count){
-        if(error){
-            *error = [NSError errorWithDomain:MMSCDErrorDomain code:MMSCDErrorInvalidArguments userInfo:@{NSLocalizedDescriptionKey : @"Existing object not found",
-                                                                                                            NSLocalizedFailureReasonErrorKey : @"No object matched the predicate."}];
-        }
-        return nil;
-    }
-    else{
-        return objects.firstObject;
-    }
-}
+//- (NSManagedObject *)mms_existingObjectWithEntityName:(NSString *)entityName predicate:(NSPredicate *)predicate error:(NSError **)error{
+//    NSArray *objects = [self mms_fetchObjectsWithEntityName:entityName predicate:predicate error:error];
+//    if(!objects){
+//        return nil;
+//    }
+//    else if(!objects.count){
+//        if(error){
+//            *error = [NSError errorWithDomain:MMSCDErrorDomain code:MMSCDErrorInvalidArguments userInfo:@{NSLocalizedDescriptionKey : @"Existing object not found",
+//                                                                                                            NSLocalizedFailureReasonErrorKey : @"No object matched the predicate."}];
+//        }
+//        return nil;
+//    }
+//    else{
+//        return objects.firstObject;
+//    }
+//}
 
-- (NSArray *)mms_fetchObjectsWithEntityName:(NSString *)entityName predicate:(nullable NSPredicate*)predicate error:(NSError **)error{
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    fetchRequest.predicate = predicate;
-    return [self executeFetchRequest:fetchRequest error:error];
-}
+//- (NSArray *)mms_fetchObjectsWithEntityName:(NSString *)entityName predicate:(nullable NSPredicate*)predicate error:(NSError **)error{
+//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
+//    fetchRequest.predicate = predicate;
+//    return [self executeFetchRequest:fetchRequest error:error];
+//}
 
-- (NSPredicate *)mms_predicateWithDictionary:(NSDictionary *)dictionary{
-    NSMutableArray* array = [NSMutableArray array];
-    [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [array addObject:[NSPredicate predicateWithFormat:@"%K = %@", key, obj]];
-    }];
-    return [NSCompoundPredicate andPredicateWithSubpredicates:array];
-}
+//- (NSPredicate *)mms_predicateWithDictionary:(NSDictionary *)dictionary{
+//    NSMutableArray* array = [NSMutableArray array];
+//    [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [array addObject:[NSPredicate predicateWithFormat:@"%K = %@", key, obj]];
+//    }];
+//    return [NSCompoundPredicate andPredicateWithSubpredicates:array];
+//}
 
-- (NSArray *)mms_fetchObjectsWithEntityName:(NSString *)entityName dictionary:(NSDictionary*)dictionary error:(NSError **)error{
-    // build the and predicate using the dict that also checks nulls.
-    NSPredicate *predicate = [self mms_predicateWithDictionary:dictionary];
-    return [self mms_fetchObjectsWithEntityName:entityName predicate:predicate error:error];
-}
+//- (NSArray *)mms_fetchObjectsWithEntityName:(NSString *)entityName dictionary:(NSDictionary*)dictionary error:(NSError **)error{
+//    // build the and predicate using the dict that also checks nulls.
+//    NSPredicate *predicate = [self mms_predicateWithDictionary:dictionary];
+//    return [self mms_fetchObjectsWithEntityName:entityName predicate:predicate error:error];
+//}
 
-- (NSManagedObject *)mms_fetchOrInsertObjectWithEntityName:(NSString *)entityName dictionary:(NSDictionary*)dictionary inserted:(BOOL*)inserted error:(NSError **)error{
-    NSError *e;
-    
-    // initialize inserted
-    if(inserted){
-        *inserted = NO;
-    }
-    
-    NSArray *objects = [self mms_fetchObjectsWithEntityName:entityName dictionary:dictionary error:&e];
-    if(!objects){
-        // nil pointer check
-        if(error){
-            *error = e;
-        }
-        return nil;
-    }
-    NSManagedObject *object = objects.firstObject;
-    if(!object){
-        object = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self];
-        [object setValuesForKeysWithDictionary:dictionary];
-        // nil pointer check
-        if(inserted){
-            *inserted = YES;
-        }
-    }
-    return object;
-}
+//- (NSManagedObject *)mms_fetchOrInsertObjectWithEntityName:(NSString *)entityName dictionary:(NSDictionary*)dictionary inserted:(BOOL*)inserted error:(NSError **)error{
+//    NSError *e;
+//
+//    // initialize inserted
+//    if(inserted){
+//        *inserted = NO;
+//    }
+//
+//    NSArray *objects = [self mms_fetchObjectsWithEntityName:entityName dictionary:dictionary error:&e];
+//    if(!objects){
+//        // nil pointer check
+//        if(error){
+//            *error = e;
+//        }
+//        return nil;
+//    }
+//    NSManagedObject *object = objects.firstObject;
+//    if(!object){
+//        object = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self];
+//        [object setValuesForKeysWithDictionary:dictionary];
+//        // nil pointer check
+//        if(inserted){
+//            *inserted = YES;
+//        }
+//    }
+//    return object;
+//}
 
-- (id)mms_fetchValueForAggregateFunction:(NSString *)function attributeName:(NSString *)attributeName entityName:(NSString *)entityName predicate:(nullable NSPredicate*)predicate error:(NSError **)error{
-    // todo validate these
-    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:self];
-    NSAttributeDescription *attribute = entity.attributesByName[attributeName];
-    NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:attribute.name];
-    NSExpression *maxExpression = [NSExpression
-                                   expressionForFunction:function
-                                   arguments:@[keyPathExpression]];
-    NSString * resultKey = @"resultKey";
-    NSExpressionDescription *description = [NSExpressionDescription.alloc init];
-    description.name = resultKey;
-    description.expression = maxExpression;
-    description.expressionResultType = attribute.attributeType;
-    // find highest recordChangeTag
-    NSFetchRequest* fetchRequest = [NSFetchRequest.alloc init];
-    fetchRequest.entity = entity;
-    fetchRequest.propertiesToFetch = @[description];
-    fetchRequest.resultType = NSDictionaryResultType;
-    fetchRequest.predicate = predicate;
-    NSArray *fetchResults = [self executeFetchRequest:fetchRequest error:error];
-    return [fetchResults.lastObject valueForKey:resultKey];
-}
+//- (id)mms_fetchValueForAggregateFunction:(NSString *)function attributeName:(NSString *)attributeName entityName:(NSString *)entityName predicate:(nullable NSPredicate*)predicate error:(NSError **)error{
+//    // todo validate these
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:self];
+//    NSAttributeDescription *attribute = entity.attributesByName[attributeName];
+//    NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:attribute.name];
+//    NSExpression *maxExpression = [NSExpression
+//                                   expressionForFunction:function
+//                                   arguments:@[keyPathExpression]];
+//    NSString * resultKey = @"resultKey";
+//    NSExpressionDescription *description = [NSExpressionDescription.alloc init];
+//    description.name = resultKey;
+//    description.expression = maxExpression;
+//    description.expressionResultType = attribute.attributeType;
+//    // find highest recordChangeTag
+//    NSFetchRequest* fetchRequest = [NSFetchRequest.alloc init];
+//    fetchRequest.entity = entity;
+//    fetchRequest.propertiesToFetch = @[description];
+//    fetchRequest.resultType = NSDictionaryResultType;
+//    fetchRequest.predicate = predicate;
+//    NSArray *fetchResults = [self executeFetchRequest:fetchRequest error:error];
+//    return [fetchResults.lastObject valueForKey:resultKey];
+//}
 
 - (BOOL)mms_saveRollbackOnError:(NSError **)error{
     BOOL result = [self save:error];

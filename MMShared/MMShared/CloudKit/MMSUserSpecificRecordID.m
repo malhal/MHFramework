@@ -7,7 +7,7 @@
 //
 
 #import "MMSUserSpecificRecordID.h"
-#import "MMSUtilities.h"
+#import "MMSCKUtilities.h"
 
 @implementation MMSUserSpecificRecordID
 
