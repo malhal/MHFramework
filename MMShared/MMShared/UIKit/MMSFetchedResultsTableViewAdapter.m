@@ -1,489 +1,45 @@
 //
-//  MMSFetchedTableViewController.m
-//  MMShared
+//  TableDataSource.m
+//  ScrollPosition
 //
-//  Created by Malcolm Hall on 05/12/2018.
-//  Copyright © 2018 Malcolm Hall. All rights reserved.
+//  Created by Malcolm Hall on 09/04/2020.
+//  Copyright © 2020 Malcolm Hall. All rights reserved.
 //
 
-#import "MMSFetchedTableViewController.h"
-//#import "MMSDataSource_Internal.h"
-#import "MMSTableView.h"
-#import "UITableView+MMS.h"
-#import "UIViewController+MMSShowing.h"
-#import "UIViewController+MMS.h"
-#import "UINavigationController+MMS.h"
-#import <objc/runtime.h>
-#import <QuartzCore/QuartzCore.h>
-#import "UITableViewController+MMS.h"
-#import "MMSFetchedTableDataSource.h"
+#import "MMSFetchedResultsTableViewAdapter.h"
 
-//NSString * const MMSFetchedTableViewControllerSelectedObjectDidUpdateNotification = @"MMSFetchedTableViewControllerSelectedObjectDidUpdateNotification";
+@interface MMSFetchedResultsTableViewAdapter()
 
-@interface MMSFetchedTableViewController()
-
-//@property (strong, nonatomic, readwrite) NSManagedObject *selectedObject;
 @property (assign, nonatomic) BOOL sectionsCountChanged;
-
-//@property (strong, nonatomic) NSBlockOperation *tableUpdates;
-
-//@property (assign, nonatomic) BOOL didBeginUpdatingFromFetchedResultsController;
-//@property (assign, nonatomic) BOOL wasDisplayed;
-//@property (assign, nonatomic) BOOL needsTableViewUpdates;
-//@property (assign, nonatomic) BOOL tableViewBeginUpdatesWasCalled;
-//@property (assign, nonatomic) BOOL reloadTableOnNextAppear;
-@property (assign, nonatomic) BOOL isEditingRow;
-//@property (strong, nonatomic) UIViewController *shownViewController;
-@property (strong, nonatomic) NSMutableArray *selectedObjects;
-
-//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
-@implementation MMSFetchedTableViewController
+@implementation MMSFetchedResultsTableViewAdapter
 
-- (void)setFetchedTableDataSource:(MMSFetchedTableDataSource *)fetchedTableDataSource{
-    if(fetchedTableDataSource == _fetchedTableDataSource){
-        return;
-    }
-    _fetchedTableDataSource = fetchedTableDataSource;
-    UITableView *tableView = (UITableView *)self.viewIfLoaded;
-    tableView.dataSource = fetchedTableDataSource;
-    [tableView reloadData];
-}
-
-//- (void)setFetchRequest:(NSFetchRequest *)fetchRequest{
-//    if([fetchRequest isEqual:_fetchRequest]){ // does deep compare
-//        return;
-//    }
-//    _fetchRequest = fetchRequest;
-//    self.fetchedTableDataSource.fetchedResultsController = [self newFetchedResultsController];
-//    [self configureView];
-//}
-
-//- (NSManagedObject *)objectAtIndexPath:(NSIndexPath *)indexPath{
-//    return [self.fetchedTableDataSource.fetchedResultsController objectAtIndexPath:indexPath];
-//}
-//
-//- (NSManagedObject *)selectedObject{
-//    return self.selectedObjects.firstObject;
-//}
-//
-//- (NSArray *)fetchedObjects{
-//    return self.fetchedTableDataSource.fetchedResultsController.fetchedObjects;
-//}
-//
-//- (NSMutableArray *)selectedObjects{
-//    if(!_selectedObjects){
-//        _selectedObjects = NSMutableArray.array;
-//    }
-//    return _selectedObjects;
-//}
-
-//- (void)selectObject:(NSManagedObject *)object{
-//    [self selectObject:object userDriven:NO];
-//}
-//
-// cant do this cause need way to remember the selection
-//- (void)selectObject:(NSManagedObject *)object userDriven:(BOOL)userDriven{
-//    if(self.tableView.isEditing){
-//        if(!self.tableView.allowsMultipleSelectionDuringEditing){
-//            [self.selectedObjects removeAllObjects];
-//        }
-//    }else{
-//        if(!self.tableView.allowsMultipleSelection){
-//            [self.selectedObjects removeAllObjects];
-//        }
-//    }
-//    [self.selectedObjects addObject:object];
-//    if(!userDriven){
-//        NSIndexPath *indexPath = [self.fetchedTableDataSource.fetchedResultsController indexPathForObject:object];
-//        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-//    }
-//}
-
-- (void)setSelectedObject:(NSManagedObject *)selectedObject{
-    if(selectedObject == _selectedObject){
-        return;
-    }
-    _selectedObject = selectedObject;
-    //NSIndexPath *indexPath = [self.fetchedTableDataSource.fetchedResultsController indexPathForObject:selectedObject];
-    //[self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-}
-
-//- (void)deselectObject:(NSManagedObject *)object{
-//    [self deselectObject:object userDriven:NO];
-//}
-//
-//- (void)deselectObject:(NSManagedObject *)object userDriven:(BOOL)userDriven{
-//    [self.selectedObjects removeObject:object];
-//    if(!userDriven){
-//        NSIndexPath *indexPath = [self.fetchedTableDataSource.fetchedResultsController indexPathForObject:object];
-//        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-//    }
-//}
-
-//- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController{
-//    if(fetchedResultsController == _fetchedResultsController){
-//        return;
-//    }
-//    else if(_fetchedResultsController.delegate == self){
-//        _fetchedResultsController.delegate = nil;
-//        fetchedResultsController.delegate = self;
-//    }
-//    _fetchedResultsController = fetchedResultsController;
-//    [self configureView];
-//}
-
-
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
-//    if(!editing){
-//        [self.selectedObjects removeAllObjects];
-//    }
-    [super setEditing:editing animated:animated];
-    //    if(self.isEditingRow){
-    //        self.isEditingRow = NO;
-    //        return;
-    //    }
-}
-
-
-//- (void)selectObject:(NSManagedObject *)object{
-//    [self selectObject:object notifyWithSender:nil selectRow:YES];
-//}
-
-//- (void)selectObject:(id)object notifyWithSender:(nullable id)sender selectRow:(BOOL)selectRow{
-//    self.selectedObject = object;
-//    if(selectRow && self.isViewLoaded){
-//        [self updateTableViewForSelectedObjectIfNecessary];
-//    }
-//    if(sender){
-//        [self didSelectObject:object sender:sender];
-//    }
-//    [self reselectTableRowIfNecessaryScrollToSelection:YES];
-//}
-
-//- (void)didSelectObject:(id)object sender:(id)sender{
-//    if([self.delegate respondsToSelector:@selector(fetchedTableViewController:didSelectObject:sender:)]){
-//        [self.delegate fetchedTableViewController:self didSelectObject:object sender:sender];
-//    }
-//}
-
-//- (void)updateTableViewForSelectedObjectIfNecessary{
-    
-//    if(!self.isFetchedResultsControllerCreated){
-//        return;
-//    }
-   // id object = self.selectedObject;
-//    if(self.navigationController.topViewController == self && [self shouldPushForObject:object]){
-//        return;
-//    }
-//    else
-//    if([self.fetchedTableDataSource.fetchedResultsController.fetchedObjects containsObject:object]){
-//        [self selectTableRowIfNecessaryForObject:object scrollToSelection:NO];
-//    }
-//    else if(object){
-//        id o = self.fetchedTableDataSource.fetchedResultsController.fetchedObjects.firstObject;
-//        [self selectObject:o notifyWithSender:self selectRow:YES];
-//    }
-    
-    //    NSIndexPath *indexPath = [self.dataSource indexPathForObject:object inView:self.tableView];
-    //    if(!indexPath){
-    //        return;
-    //    }
-    
-    // this needs to reselect if we are the top controller and in landscape or we are pushed on the stack.
-    //    UIViewController *vc = self.tableViewController;
-    //    if(vc.navigationController.topViewController == vc){
-    //        if([self shouldPushForIndexPath:indexPath]){
-    //            return;
-    //        }
-    //    }
-    //  [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:];
-//    [self updateTableViewForSelectedObject];
-//
-//}
-
-//- (void)updateTableViewForSelectedObject{
-//
-//}
-
-//- (void)selectTableRowIfNecessaryForObject:(id)object scrollToSelection:(BOOL)scrollToSelection{
-//    if(self.tableView.isEditing){
-//        return;
-//    }
-//    [self selectTableRowForObject:object scrollToSelection:scrollToSelection];
-//}
-
-//- (void)selectTableRowForObject:(id)object scrollToSelection:(BOOL)scrollToSelection{
-//    NSIndexPath *indexPath = [self.fetchedTableDataSource.fetchedResultsController indexPathForObject:object];
-//    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:scrollToSelection ? UITableViewScrollPositionMiddle : UITableViewScrollPositionNone];
-//}
-
-//- (BOOL)shouldSelectRowForObject:(id)object{
-//    return YES;
-//}
-//- (void)tableViewDidMoveToWindow:(MMSTableView *)tableView{
-//    if(!tableView.window){
-//        return;
-//    }
-//    NSLog(@"NOW");
-//    id object = self.selectedObject;
-//    if(object){
-//        if([self.tableObjectsController indexPathForObject:object]){
-//            // if the object is in the data source nothing to do
-//            return;
-//        }
-//    }
-//    else if(!self.tableObjectsController.objects.count){
-//        // we don't have a selected object and there is none to select
-//        return;
-//    }
-//    object = self.tableObjectsController.objects.firstObject; // we might have had a selected object but now might have none
-//    if(object){
-//        NSIndexPath *ip = [self.tableObjectsController indexPathForObject:object];
-//        if(![self shouldShowDetailForIndexPath:ip]){
-//            return;
-//        }
-//    }
-//[self updateCurrentObject:object notifyDelegate:YES];
-//[self reselectTableRowIfNecessary];
-//}
-
-
-//- (id<MMSDataSourceObjectShowing>)dataSource{
-//    return (id<MMSDataSourceObjectShowing>)self.tableView.dataSource;
-//}
-
-
-//- (BOOL)shouldPushForObject:(id)object{
-//    if([self shouldShowDetailForObject:object]){
-//        return [self mms_willShowingDetailViewControllerPushWithSender:self];
-//    }else{
-//        return [self mms_willShowingViewControllerPushWithSender:self];
-//    }
-//}
-
-//- (BOOL)shouldShowDetailForObject:(id)object{
-//    if([self.delegate respondsToSelector:@selector(fetchedTableViewController:shouldShowDetailForObject:)]){
-//        return [self.delegate fetchedTableViewController:self shouldShowDetailForObject:object];
-//    }
-//    return YES;
-//}
-
-//#pragma mark - View Controller
-
-//- (void)showViewController:(UIViewController *)vc sender:(id)sender{
-//    [self.parentViewController showViewController:vc sender:sender];
-//    self.shownViewController = vc;
-//    NSString *s = UIViewControllerShowDetailTargetDidChangeNotification;
-//    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(navigationControllerDidShowViewController:) name:MMSNavigationControllerDidShowViewControllerNotification object:self.navigationController];
-//}
-
-// called after child's didMoveToParentViewController
-//- (void)navigationControllerDidShowViewController:(NSNotification *)notification{
-//    UIViewController *nextVisible = notification.userInfo[@"UINavigationControllerNextVisibleViewController"];
-//    if(nextVisible != self){
-//        return;
-//    }
-//    UIViewController *lastVisible = notification.userInfo[@"UINavigationControllerLastVisibleViewController"];
-//    UIViewController *shownViewController = self.shownViewController;
-//    if(lastVisible == shownViewController){
-//        [NSNotificationCenter.defaultCenter removeObserver:self name:@"UINavigationControllerDidShowViewControllerNotification" object:self.navigationController];
-//        [self.shownViewController willMoveToParentViewController:self];
-//        [self addChildViewController:self.shownViewController];
-//        [self.shownViewController didMoveToParentViewController:self];
-//    }
-//}
-
-- (void)viewWillAppear:(BOOL)animated{
-
- //NSArray *a = self.navigationController.viewControllers;
-  //  [self.tableView reloadData];
-    
-   // BOOL b = self.currentDetailNavigationController.mms_isViewVisible;
-    
-//    if(self.isEditing || self.clearsSelectionOnViewWillAppear){
-//
-//    }
-   // self.clearsSelectionOnViewWillAppear = !self.isMovingToParentViewController;
-    
-    //[self configureView];
-    
-    /*
-    if(self.clearsSelectionOnViewWillAppear){
-        id <UIViewControllerTransitionCoordinator> transitionCoordinator;
-        if((transitionCoordinator = self.transitionCoordinator)){
-            [transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-                for(NSIndexPath *indexPath in self.tableView.indexPathsForSelectedRows){
-                    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-                    if(cell){
-                        [cell setNeedsLayout];
-                    }
-                }
-            } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-                if(context.cancelled){
-                    
-                }
-                else{
-                    [self.selectedObjects removeAllObjects];
-                 //   [self configureView];
-                }
-            }];
-        }
-    }else{
-      //  [self.selectedObjects removeAllObjects];
-    //    [self configureView];
-    }
-    */
-    [super viewWillAppear:animated];
-}
-
-//- (void)viewDidAppear:(BOOL)animated{
-//    [super viewDidAppear:animated];
-//
-    // runs all the changes since the fetch controller was cached.
-    //[self.managedObjectContext processPendingChanges];
-//}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-  //  self.fetchedTableDataSource.fetchedResultsController.delegate = nil;
-   // [NSNotificationCenter.defaultCenter removeObserver:self name:UIViewControllerShowDetailTargetDidChangeNotification object:nil];
-    //self.fetchedTableDataSource.fetchedResultsController.delegate = nil;
-}
-
-- (void)configureView{
-    UITableView *tableView = self.mms_tableViewIfLoaded;
-    if(!tableView){
-        return;
-    }
-    NSFetchedResultsController *fetchedResultsController = self.fetchedTableDataSource.fetchedResultsController;
-    if(!fetchedResultsController.delegate){
-        fetchedResultsController.delegate = self;
-        NSError *error;
-        if(![fetchedResultsController performFetch:&error]){
-            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-            abort();
-        }
-        tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        [tableView reloadData];
-    }
-    tableView.separatorStyle = fetchedResultsController.fetchedObjects.count ? UITableViewCellSeparatorStyleSingleLine : UITableViewCellSeparatorStyleNone;
-    
-//    for(NSManagedObject *selectedObject in self.selectedObjects){
-//        NSIndexPath *indexPath = [self.fetchedTableDataSource.fetchedResultsController indexPathForObject:selectedObject];
-//        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-//    }
-}
-
-
-
-#pragma mark Table Delegate
-
-//- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    UIContextualAction *delete = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive
-//                                                                         title:@"Delete"
-//                                                                       handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
-//        completionHandler(YES);
-//    }];
-//    delete.backgroundColor = [UIColor redColor];
-//    UISwipeActionsConfiguration *swipeActionConfig = [UISwipeActionsConfiguration configurationWithActions:@[delete]];
-//    return swipeActionConfig;
-//}
-
-
-
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
- //   if(!tableView.isEditing){
-        // todo check if it is a selectable one
-     //   id object = [self.fetchedTableDataSource.fetchedResultsController objectAtIndexPath:indexPath];
-      //  [self selectObject:object notifyWithSender:tableView selectRow:NO];
-    //}
-  //  NSManagedObject *object = [self.fetchedTableDataSource.fetchedResultsController objectAtIndexPath:indexPath];
-   // [self selectObject:object userDriven:YES];
-    return indexPath;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(!self.isEditing){
-        NSManagedObject *object = [self.fetchedTableDataSource.fetchedResultsController objectAtIndexPath:indexPath];
-        // don't show if in landscape and the object is already selected.
-        //self.selectionIsUserDriven = YES;
-        //[self setSelectedObject:object show:YES];
-      //  self.selectedObject = object;
-        //[self _showViewControllerForObject:object];
-        //self.selectionIsUserDriven = NO;
-    }
-    //tableView.dataSource //
-    //self.selectedModelItemIdentifier = [self modelIdentifierForElementAtIndexPath:indexPath inView:tableView];
-
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //self.selectedModelItemIdentifier = nil;
-  //  NSManagedObject *object = [self.fetchedTableDataSource.fetchedResultsController objectAtIndexPath:indexPath];
-   // [self deselectObject:object userDriven:YES];
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//- (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)controller
+- (instancetype)initWithTableView:(UITableView *)tableView
 {
-//    if([self.tableDelegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]){
-//        [self.tableDelegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
-//    }
-     id object = [self.fetchedTableDataSource.fetchedResultsController objectAtIndexPath:indexPath];
-    [self configureCell:cell withObject:object];
+    self = [super init];
+    if (self) {
+        _tableView = tableView;
+        //_fetchedResultsController = controller;
+        //_cellIdentifiersByClassName = @{NSStringFromClass(NSObject.class) : @"Cell"};
+    }
+    return self;
 }
 
-- (void)configureCell:(UITableViewCell *)cell withObject:(id)object{
-//    if([self.delegate respondsToSelector:@selector(fetchedTableViewController:configureCell:withObject:)]){
-//        [self.delegate fetchedTableViewController:self configureCell:cell withObject:object];
-//    }
+- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController{
+    if(fetchedResultsController == _fetchedResultsController){
+        return;
+    }
+    _fetchedResultsController = fetchedResultsController;
+    fetchedResultsController.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView reloadData];
 }
-
-//- (void)updateCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
-//    BOOL push = [self shouldPushForObject:object];
-////    // Only show a disclosure indicator if we're pushing
-//    if (push) {
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    } else {
-//        cell.accessoryType = UITableViewCellAccessoryNone;
-//    }
-//    if([self.delegate respondsToSelector:@selector(fetchedTableViewController:updateCell:withObject:)]){
-//        [self.delegate fetchedTableViewController:self updateCell:cell withObject:object];
-//    }
-//}
-
-- (void)tableViewDidEndEditing:(MMSTableView *)tableView{
-   // [self updateTableViewForSelectedObjectIfNecessary];
-}
-
-#pragma mark View Controller
-
-//- (UIViewController *)targetViewControllerForAction:(SEL)action sender:(id)sender{
-//
-//    UIViewController *target = [super targetViewControllerForAction:action sender:sender];
-//    if(!target){
-//        target = [self.delegate targetViewControllerForAction:action sender:sender];
-//    }
-//    return target;
-//}
-
-#pragma mark - Table View
-
 
 
 #pragma mark - Fetched results controller
-
-//- (NSFetchedResultsController *)newFetchedResultsController{
-//    //if(!_fetchedResultsController){
-////        [self createFetchedResultsController];
-////        NSAssert(_fetchedResultsController, @"FRC must be set at end of create");
-//    NSFetchedResultsController *fetchedResultsController = [NSFetchedResultsController.alloc initWithFetchRequest:self.fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-//    fetchedResultsController.delegate = self;
-//    //}
-//    return fetchedResultsController;
-//}
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     //self.didBeginUpdatingFromFetchedResultsController = YES;
@@ -560,7 +116,11 @@
         {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             if(cell){
-                [self.fetchedTableDataSource configureCell:cell withObject:object inTableView:self.tableView];
+                //[self.fetchedResultsTableViewAdapter configureCell:cell withObject:object];
+                //[self configureCell:cell withObject:object];
+                if([tableView.delegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]){
+                    [tableView.delegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
+                }
             }
             break;
         }
@@ -570,7 +130,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
-    [self configureView];
+   // [self configureView];
 //    if(self.tableViewBeginUpdatesWasCalled){
 //        [self.tableView endUpdates];
 //        self.tableViewBeginUpdatesWasCalled = NO;
@@ -651,22 +211,536 @@
 
 }
 
-#pragma mark - State Restoration
 
-#define kSelectedObjectManagedObjectContextKey @"SelectedObjectManagedObjectContext"
+#pragma mark - Table View
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[self.fetchedResultsController sections] count];
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    return [sectionInfo numberOfObjects];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ///NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    //NSString *cellIdentifier = self.cellIdentifiersByClassName[object.className];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+   // UITableViewCell *cell = [self cellForObject:object atIndexPath:indexPath];
+   // [self configureCell:cell withObject:object];
+    return [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];;
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObjectContext *context = self.fetchedResultsController.managedObjectContext;
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+            
+        NSError *error = nil;
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+            abort();
+        }
+    }
+}
+
+//
+//- (UITableViewCell *)cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath{
+//    UITableViewCell *cell =
+//    //[self configureCell:cell withObject:object];
+//    return cell;
+//}
+
+//- (UITableViewCell *)cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath{
+////- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    //    if([self.tableDataSource respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]){
+//    //        return [self.tableDataSource tableView:tableView cellForRowAtIndexPath:indexPath];
+//    //    }
+//    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//    cell.textLabel.opaque = NO;
+//    cell.textLabel.backgroundColor = UIColor.clearColor;
+//    //if(!cell.selectedBackgroundView){
+////        UIView *v = [UIView.alloc init];
+////        v.backgroundColor = v.tintColor;
+////        cell.selectedBackgroundView = v;
+////    }
+//    return cell;
+//}
+
+
+//- (void)configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
+//    if(self.delegate){
+//        [self.delegate fetchedResultsTableViewAdapter:self configureCell:cell withObject:object];
+//    }
+//}
+
+@end
+
+
+
+
+
+//- (void)setFetchedResultsTableViewAdapter:(MMSFetchedResultsTableViewAdapter *)fetchedResultsTableViewAdapter{
+//    if(fetchedResultsTableViewAdapter == _fetchedResultsTableViewAdapter){
+//        return;
+//    }
+//    _fetchedResultsTableViewAdapter = fetchedResultsTableViewAdapter;
+//    UITableView *tableView = (UITableView *)self.viewIfLoaded;
+//    tableView.dataSource = fetchedResultsTableViewAdapter;
+//    [tableView reloadData];
+//}
+
+//- (void)setFetchRequest:(NSFetchRequest *)fetchRequest{
+//    if([fetchRequest isEqual:_fetchRequest]){ // does deep compare
+//        return;
+//    }
+//    _fetchRequest = fetchRequest;
+//    self.fetchedResultsTableViewAdapter.fetchedResultsController = [self newFetchedResultsController];
+//    [self configureView];
+//}
+
+//- (NSManagedObject *)objectAtIndexPath:(NSIndexPath *)indexPath{
+//    return [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+//}
+//
+//- (NSManagedObject *)selectedObject{
+//    return self.selectedObjects.firstObject;
+//}
+//
+//- (NSArray *)fetchedObjects{
+//    return self.fetchedResultsTableViewAdapter.fetchedResultsController.fetchedObjects;
+//}
+//
+//- (NSMutableArray *)selectedObjects{
+//    if(!_selectedObjects){
+//        _selectedObjects = NSMutableArray.array;
+//    }
+//    return _selectedObjects;
+//}
+
+//- (void)selectObject:(NSManagedObject *)object{
+//    [self selectObject:object userDriven:NO];
+//}
+//
+// cant do this cause need way to remember the selection
+//- (void)selectObject:(NSManagedObject *)object userDriven:(BOOL)userDriven{
+//    if(self.tableView.isEditing){
+//        if(!self.tableView.allowsMultipleSelectionDuringEditing){
+//            [self.selectedObjects removeAllObjects];
+//        }
+//    }else{
+//        if(!self.tableView.allowsMultipleSelection){
+//            [self.selectedObjects removeAllObjects];
+//        }
+//    }
+//    [self.selectedObjects addObject:object];
+//    if(!userDriven){
+//        NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:object];
+//        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+//    }
+//}
+
+//- (void)setSelectedObject:(NSManagedObject *)selectedObject{
+//    if(selectedObject == _selectedObject){
+//        return;
+//    }
+//    _selectedObject = selectedObject;
+    //NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:selectedObject];
+    //[self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+//}
+
+//- (void)deselectObject:(NSManagedObject *)object{
+//    [self deselectObject:object userDriven:NO];
+//}
+//
+//- (void)deselectObject:(NSManagedObject *)object userDriven:(BOOL)userDriven{
+//    [self.selectedObjects removeObject:object];
+//    if(!userDriven){
+//        NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:object];
+//        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    }
+//}
+
+//- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController{
+//    if(fetchedResultsController == _fetchedResultsController){
+//        return;
+//    }
+//    else if(_fetchedResultsController.delegate == self){
+//        _fetchedResultsController.delegate = nil;
+//        fetchedResultsController.delegate = self;
+//    }
+//    _fetchedResultsController = fetchedResultsController;
+//    [self configureView];
+//}
+
+
+//- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
+//    if(!editing){
+//        [self.selectedObjects removeAllObjects];
+//    }
+   // [super setEditing:editing animated:animated];
+    //    if(self.isEditingRow){
+    //        self.isEditingRow = NO;
+    //        return;
+    //    }
+//}
+
+
+//- (void)selectObject:(NSManagedObject *)object{
+//    [self selectObject:object notifyWithSender:nil selectRow:YES];
+//}
+
+//- (void)selectObject:(id)object notifyWithSender:(nullable id)sender selectRow:(BOOL)selectRow{
+//    self.selectedObject = object;
+//    if(selectRow && self.isViewLoaded){
+//        [self updateTableViewForSelectedObjectIfNecessary];
+//    }
+//    if(sender){
+//        [self didSelectObject:object sender:sender];
+//    }
+//    [self reselectTableRowIfNecessaryScrollToSelection:YES];
+//}
+
+//- (void)didSelectObject:(id)object sender:(id)sender{
+//    if([self.delegate respondsToSelector:@selector(fetchedTableViewController:didSelectObject:sender:)]){
+//        [self.delegate fetchedTableViewController:self didSelectObject:object sender:sender];
+//    }
+//}
+
+//- (void)updateTableViewForSelectedObjectIfNecessary{
+    
+//    if(!self.isFetchedResultsControllerCreated){
+//        return;
+//    }
+   // id object = self.selectedObject;
+//    if(self.navigationController.topViewController == self && [self shouldPushForObject:object]){
+//        return;
+//    }
+//    else
+//    if([self.fetchedResultsTableViewAdapter.fetchedResultsController.fetchedObjects containsObject:object]){
+//        [self selectTableRowIfNecessaryForObject:object scrollToSelection:NO];
+//    }
+//    else if(object){
+//        id o = self.fetchedResultsTableViewAdapter.fetchedResultsController.fetchedObjects.firstObject;
+//        [self selectObject:o notifyWithSender:self selectRow:YES];
+//    }
+    
+    //    NSIndexPath *indexPath = [self.dataSource indexPathForObject:object inView:self.tableView];
+    //    if(!indexPath){
+    //        return;
+    //    }
+    
+    // this needs to reselect if we are the top controller and in landscape or we are pushed on the stack.
+    //    UIViewController *vc = self.tableViewController;
+    //    if(vc.navigationController.topViewController == vc){
+    //        if([self shouldPushForIndexPath:indexPath]){
+    //            return;
+    //        }
+    //    }
+    //  [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:];
+//    [self updateTableViewForSelectedObject];
+//
+//}
+
+//- (void)updateTableViewForSelectedObject{
+//
+//}
+
+//- (void)selectTableRowIfNecessaryForObject:(id)object scrollToSelection:(BOOL)scrollToSelection{
+//    if(self.tableView.isEditing){
+//        return;
+//    }
+//    [self selectTableRowForObject:object scrollToSelection:scrollToSelection];
+//}
+
+//- (void)selectTableRowForObject:(id)object scrollToSelection:(BOOL)scrollToSelection{
+//    NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:object];
+//    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:scrollToSelection ? UITableViewScrollPositionMiddle : UITableViewScrollPositionNone];
+//}
+
+//- (BOOL)shouldSelectRowForObject:(id)object{
+//    return YES;
+//}
+//- (void)tableViewDidMoveToWindow:(MMSTableView *)tableView{
+//    if(!tableView.window){
+//        return;
+//    }
+//    NSLog(@"NOW");
+//    id object = self.selectedObject;
+//    if(object){
+//        if([self.tableObjectsController indexPathForObject:object]){
+//            // if the object is in the data source nothing to do
+//            return;
+//        }
+//    }
+//    else if(!self.tableObjectsController.objects.count){
+//        // we don't have a selected object and there is none to select
+//        return;
+//    }
+//    object = self.tableObjectsController.objects.firstObject; // we might have had a selected object but now might have none
+//    if(object){
+//        NSIndexPath *ip = [self.tableObjectsController indexPathForObject:object];
+//        if(![self shouldShowDetailForIndexPath:ip]){
+//            return;
+//        }
+//    }
+//[self updateCurrentObject:object notifyDelegate:YES];
+//[self reselectTableRowIfNecessary];
+//}
+
+
+//- (id<MMSDataSourceObjectShowing>)dataSource{
+//    return (id<MMSDataSourceObjectShowing>)self.tableView.dataSource;
+//}
+
+
+//- (BOOL)shouldPushForObject:(id)object{
+//    if([self shouldShowDetailForObject:object]){
+//        return [self mms_willShowingDetailViewControllerPushWithSender:self];
+//    }else{
+//        return [self mms_willShowingViewControllerPushWithSender:self];
+//    }
+//}
+
+//- (BOOL)shouldShowDetailForObject:(id)object{
+//    if([self.delegate respondsToSelector:@selector(fetchedTableViewController:shouldShowDetailForObject:)]){
+//        return [self.delegate fetchedTableViewController:self shouldShowDetailForObject:object];
+//    }
+//    return YES;
+//}
+
+//#pragma mark - View Controller
+
+//- (void)showViewController:(UIViewController *)vc sender:(id)sender{
+//    [self.parentViewController showViewController:vc sender:sender];
+//    self.shownViewController = vc;
+//    NSString *s = UIViewControllerShowDetailTargetDidChangeNotification;
+//    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(navigationControllerDidShowViewController:) name:MMSNavigationControllerDidShowViewControllerNotification object:self.navigationController];
+//}
+
+// called after child's didMoveToParentViewController
+//- (void)navigationControllerDidShowViewController:(NSNotification *)notification{
+//    UIViewController *nextVisible = notification.userInfo[@"UINavigationControllerNextVisibleViewController"];
+//    if(nextVisible != self){
+//        return;
+//    }
+//    UIViewController *lastVisible = notification.userInfo[@"UINavigationControllerLastVisibleViewController"];
+//    UIViewController *shownViewController = self.shownViewController;
+//    if(lastVisible == shownViewController){
+//        [NSNotificationCenter.defaultCenter removeObserver:self name:@"UINavigationControllerDidShowViewControllerNotification" object:self.navigationController];
+//        [self.shownViewController willMoveToParentViewController:self];
+//        [self addChildViewController:self.shownViewController];
+//        [self.shownViewController didMoveToParentViewController:self];
+//    }
+//}
+
+//- (void)viewWillAppear:(BOOL)animated{
+
+ //NSArray *a = self.navigationController.viewControllers;
+  //  [self.tableView reloadData];
+    
+   // BOOL b = self.currentDetailNavigationController.mms_isViewVisible;
+    
+//    if(self.isEditing || self.clearsSelectionOnViewWillAppear){
+//
+//    }
+   // self.clearsSelectionOnViewWillAppear = !self.isMovingToParentViewController;
+    
+    //[self configureView];
+    
+    /*
+    if(self.clearsSelectionOnViewWillAppear){
+        id <UIViewControllerTransitionCoordinator> transitionCoordinator;
+        if((transitionCoordinator = self.transitionCoordinator)){
+            [transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+                for(NSIndexPath *indexPath in self.tableView.indexPathsForSelectedRows){
+                    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+                    if(cell){
+                        [cell setNeedsLayout];
+                    }
+                }
+            } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+                if(context.cancelled){
+                    
+                }
+                else{
+                    [self.selectedObjects removeAllObjects];
+                 //   [self configureView];
+                }
+            }];
+        }
+    }else{
+      //  [self.selectedObjects removeAllObjects];
+    //    [self configureView];
+    }
+    */
+    //[super viewWillAppear:animated];
+//}
+
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//
+    // runs all the changes since the fetch controller was cached.
+    //[self.managedObjectContext processPendingChanges];
+//}
+
+//- (void)viewWillDisappear:(BOOL)animated{
+   // [super viewWillDisappear:animated];
+  //  self.fetchedResultsTableViewAdapter.fetchedResultsController.delegate = nil;
+   // [NSNotificationCenter.defaultCenter removeObserver:self name:UIViewControllerShowDetailTargetDidChangeNotification object:nil];
+    //self.fetchedResultsTableViewAdapter.fetchedResultsController.delegate = nil;
+//}
+
+/*
+
+- (void)configureView{
+    UITableView *tableView = self.mms_tableViewIfLoaded;
+    if(!tableView){
+        return;
+    }
+    NSFetchedResultsController *fetchedResultsController = self.fetchedResultsTableViewAdapter.fetchedResultsController;
+    if(!fetchedResultsController.delegate){
+        fetchedResultsController.delegate = self;
+        NSError *error;
+        if(![fetchedResultsController performFetch:&error]){
+            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+            abort();
+        }
+        tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        [tableView reloadData];
+    }
+    tableView.separatorStyle = fetchedResultsController.fetchedObjects.count ? UITableViewCellSeparatorStyleSingleLine : UITableViewCellSeparatorStyleNone;
+    
+//    for(NSManagedObject *selectedObject in self.selectedObjects){
+//        NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:selectedObject];
+//        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+//    }
+}
+
+*/
+
+//#pragma mark Table Delegate
+
+//- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    UIContextualAction *delete = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive
+//                                                                         title:@"Delete"
+//                                                                       handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+//        completionHandler(YES);
+//    }];
+//    delete.backgroundColor = [UIColor redColor];
+//    UISwipeActionsConfiguration *swipeActionConfig = [UISwipeActionsConfiguration configurationWithActions:@[delete]];
+//    return swipeActionConfig;
+//}
+
+
+
+//- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+ //   if(!tableView.isEditing){
+        // todo check if it is a selectable one
+     //   id object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+      //  [self selectObject:object notifyWithSender:tableView selectRow:NO];
+    //}
+  //  NSManagedObject *object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+   // [self selectObject:object userDriven:YES];
+//    return indexPath;
+//}
+
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   // if(!self.isEditing){
+   //     NSManagedObject *object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+        // don't show if in landscape and the object is already selected.
+        //self.selectionIsUserDriven = YES;
+        //[self setSelectedObject:object show:YES];
+      //  self.selectedObject = object;
+        //[self _showViewControllerForObject:object];
+        //self.selectionIsUserDriven = NO;
+//    }
+    //tableView.dataSource //
+    //self.selectedModelItemIdentifier = [self modelIdentifierForElementAtIndexPath:indexPath inView:tableView];
+
+//}
+
+//- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //self.selectedModelItemIdentifier = nil;
+  //  NSManagedObject *object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+   // [self deselectObject:object userDriven:YES];
+//}
+
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if([self.tableDelegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]){
+//        [self.tableDelegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
+//    }
+//     id object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+//    [self configureCell:cell withObject:object];
+//}
+
+//- (void)configureCell:(UITableViewCell *)cell withObject:(id)object{
+//    if([self.delegate respondsToSelector:@selector(fetchedTableViewController:configureCell:withObject:)]){
+//        [self.delegate fetchedTableViewController:self configureCell:cell withObject:object];
+//    }
+//}
+
+//- (void)updateCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
+//    BOOL push = [self shouldPushForObject:object];
+////    // Only show a disclosure indicator if we're pushing
+//    if (push) {
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    } else {
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//    }
+//    if([self.delegate respondsToSelector:@selector(fetchedTableViewController:updateCell:withObject:)]){
+//        [self.delegate fetchedTableViewController:self updateCell:cell withObject:object];
+//    }
+//}
+
+//- (void)tableViewDidEndEditing:(MMSTableView *)tableView{
+   // [self updateTableViewForSelectedObjectIfNecessary];
+//}
+
+//#pragma mark View Controller
+
+//- (UIViewController *)targetViewControllerForAction:(SEL)action sender:(id)sender{
+//
+//    UIViewController *target = [super targetViewControllerForAction:action sender:sender];
+//    if(!target){
+//        target = [self.delegate targetViewControllerForAction:action sender:sender];
+//    }
+//    return target;
+//}
+
+//#pragma mark - Table View
+
+
+
+//#pragma mark - State Restoration
+
+//#define kSelectedObjectManagedObjectContextKey @"SelectedObjectManagedObjectContext"
 //#define kSelectedObjectKey @"SelectedObject"
 
-- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
-   [super encodeRestorableStateWithCoder:coder];
+//- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
+ //  [super encodeRestorableStateWithCoder:coder];
    //  [coder encodeObject:self.selectedObject.managedObjectContext forKey:kSelectedObjectManagedObjectContextKey];
    //  [coder encodeObject:self.selectedObject.objectID.URIRepresentation forKey:kSelectedObjectKey];
     // needed if the table isn't visible and has received updates that weren't applied, otherwise modelIdentifierForElementAtIndexPath crashes for cells that have deleted objects.
     //[self configureView];
-}
+//}
 
-- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
+//- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
     
-   [super decodeRestorableStateWithCoder:coder];
+ //  [super decodeRestorableStateWithCoder:coder];
   //  NSManagedObjectContext *managedObjectContext = [coder decodeObjectForKey:kSelectedObjectManagedObjectContextKey];
 //    NSURL *objectURI = [coder decodeObjectForKey:kSelectedObjectKey];
 //    if(objectURI){
@@ -679,14 +753,14 @@
     
     //self.masterTable = [coder decodeObjectForKey:kSelectionManagerKey];
     //    [self.tableView reloadData];
-}
+//}
 
 // on encode it asks for first and selected. On restore it asks for first so maybe checks ID. idx can be nil. called on decode too but with nil.
 //- (nullable NSString *)modelIdentifierForElementAtIndexPath:(NSIndexPath *)idx inView:(UIView *)view{
 //    if(!idx){
 //        return nil;
 //    }
-//    NSManagedObject *object = [self.fetchedTableDataSource.fetchedResultsController objectAtIndexPath:idx];
+//    NSManagedObject *object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:idx];
 //    NSString *identifier = object.objectID.URIRepresentation.absoluteString;
 //    return identifier;
 //}
@@ -697,8 +771,8 @@
 //        return nil;
 //    }
 //    NSURL *objectURI = [NSURL URLWithString:identifier];
-//    NSManagedObject *object = [self.fetchedTableDataSource.fetchedResultsController.managedObjectContext mcd_objectWithURI:objectURI];
-//    NSIndexPath *indexPath = [self.fetchedTableDataSource.fetchedResultsController indexPathForObject:object];
+//    NSManagedObject *object = [self.fetchedResultsTableViewAdapter.fetchedResultsController.managedObjectContext mcd_objectWithURI:objectURI];
+//    NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:object];
 //    return indexPath;
 //}
 
@@ -737,7 +811,7 @@
 //    return NO;
 //}
 
-@end
+//@end
 
 //@implementation UITableViewController (MMSFetchedTableViewController)
 //
@@ -749,5 +823,5 @@
 //    }
 //    return f;
 //}
-//    
+//
 //@end

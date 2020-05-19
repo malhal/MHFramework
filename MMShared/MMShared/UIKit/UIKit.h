@@ -23,9 +23,9 @@
 #import <MMShared/MMSAnimationFixStoryboardSegue.h>
 
 #import <MMShared/MMSTableView.h>
-#import <MMShared/MMSMasterTableViewController.h>
-#import <MMShared/MMSFetchedTableViewController.h>
-#import <MMShared/MMSFetchedTableDataSource.h>
+//#import <MMShared/MMSMasterTableViewController.h>
+//#import <MMShared/MMSFetchedTableViewController.h>
+#import <MMShared/MMSFetchedResultsTableViewAdapter.h>
 #import <MMShared/MMSRootNavigationController.h>
 //#import <MMShared/MMSDetailNavigationController.h>
 //#import <MMShared/MMSFetchedTableViewControllerViewControllerSupport.h>
