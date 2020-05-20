@@ -6,15 +6,15 @@
 //  Copyright © 2020 Malcolm Hall. All rights reserved.
 //
 
-#import "MMSFetchedResultsTableViewAdapter.h"
+#import "MMSTableViewFetchAdapter.h"
 
-@interface MMSFetchedResultsTableViewAdapter()
+@interface MMSTableViewFetchAdapter()
 
 @property (assign, nonatomic) BOOL sectionsCountChanged;
 
 @end
 
-@implementation MMSFetchedResultsTableViewAdapter
+@implementation MMSTableViewFetchAdapter
 
 //- (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)controller
 - (instancetype)initWithTableView:(UITableView *)tableView
@@ -119,12 +119,12 @@
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             if(cell){
                 // this can't call anything that will call [controller objectAtIndex] because it won't be the correct index.
-                //[self.fetchedResultsTableViewAdapter configureCell:cell withObject:object];
+                //[self.tableViewFetchAdapter configureCell:cell withObject:object];
                 //[self configureCell:cell withObject:object];
 //                if([tableView.delegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]){
 //                    [tableView.delegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
 //                }
-                [self configureCell:cell withObject:object];
+                [self updateCell:cell withObject:object];
             }
             break;
         }
@@ -236,19 +236,20 @@
    // UITableViewCell *cell = [self cellForObject:object atIndexPath:indexPath];
    //
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    UITableViewCell<MMSTableViewCellConfiguring> *cell = [self cellForObject:object atIndexPath:indexPath];
-    [self configureCell:cell withObject:object];
+    UITableViewCell *cell = [self cellForObject:object atIndexPath:indexPath];
+    [self updateCell:cell withObject:object];
     return cell;
 }
 
-- (UITableViewCell<MMSTableViewCellConfiguring> *)cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
     return [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 }
 
-- (void)configureCell:(UITableViewCell *)cell withObject:(id)object{
-    Protocol *protocol = @protocol(MMSTableViewCellConfiguring);
-    NSAssert([cell conformsToProtocol:protocol], @"cell must conform to protocol %@", NSStringFromProtocol(protocol));
-    [(UITableViewCell<MMSTableViewCellConfiguring> *)cell configureWithObject:object];
+- (void)updateCell:(UITableViewCell *)cell withObject:(id)object{
+//    Protocol *protocol = @protocol(MMSTableViewCellConfiguring);
+//    NSAssert([cell conformsToProtocol:protocol], @"cell must conform to protocol %@", NSStringFromProtocol(protocol));
+//    [(UITableViewCell<MMSTableViewCellConfiguring> *)cell configureWithObject:object];
+    [self.cellUpdater tableViewFetchAdapter:self updateCell:cell withObject:object];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -301,13 +302,13 @@
 
 
 
-//- (void)setFetchedResultsTableViewAdapter:(MMSFetchedResultsTableViewAdapter *)fetchedResultsTableViewAdapter{
-//    if(fetchedResultsTableViewAdapter == _fetchedResultsTableViewAdapter){
+//- (void)setFetchedResultsTableViewAdapter:(MMSTableViewFetchAdapter *)tableViewFetchAdapter{
+//    if(tableViewFetchAdapter == _tableViewFetchAdapter){
 //        return;
 //    }
-//    _fetchedResultsTableViewAdapter = fetchedResultsTableViewAdapter;
+//    _tableViewFetchAdapter = tableViewFetchAdapter;
 //    UITableView *tableView = (UITableView *)self.viewIfLoaded;
-//    tableView.dataSource = fetchedResultsTableViewAdapter;
+//    tableView.dataSource = tableViewFetchAdapter;
 //    [tableView reloadData];
 //}
 
@@ -316,12 +317,12 @@
 //        return;
 //    }
 //    _fetchRequest = fetchRequest;
-//    self.fetchedResultsTableViewAdapter.fetchedResultsController = [self newFetchedResultsController];
+//    self.tableViewFetchAdapter.fetchedResultsController = [self newFetchedResultsController];
 //    [self configureView];
 //}
 
 //- (NSManagedObject *)objectAtIndexPath:(NSIndexPath *)indexPath{
-//    return [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+//    return [self.tableViewFetchAdapter.fetchedResultsController objectAtIndexPath:indexPath];
 //}
 //
 //- (NSManagedObject *)selectedObject{
@@ -329,7 +330,7 @@
 //}
 //
 //- (NSArray *)fetchedObjects{
-//    return self.fetchedResultsTableViewAdapter.fetchedResultsController.fetchedObjects;
+//    return self.tableViewFetchAdapter.fetchedResultsController.fetchedObjects;
 //}
 //
 //- (NSMutableArray *)selectedObjects{
@@ -356,7 +357,7 @@
 //    }
 //    [self.selectedObjects addObject:object];
 //    if(!userDriven){
-//        NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:object];
+//        NSIndexPath *indexPath = [self.tableViewFetchAdapter.fetchedResultsController indexPathForObject:object];
 //        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 //    }
 //}
@@ -366,7 +367,7 @@
 //        return;
 //    }
 //    _selectedObject = selectedObject;
-    //NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:selectedObject];
+    //NSIndexPath *indexPath = [self.tableViewFetchAdapter.fetchedResultsController indexPathForObject:selectedObject];
     //[self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 //}
 
@@ -377,7 +378,7 @@
 //- (void)deselectObject:(NSManagedObject *)object userDriven:(BOOL)userDriven{
 //    [self.selectedObjects removeObject:object];
 //    if(!userDriven){
-//        NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:object];
+//        NSIndexPath *indexPath = [self.tableViewFetchAdapter.fetchedResultsController indexPathForObject:object];
 //        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 //    }
 //}
@@ -438,11 +439,11 @@
 //        return;
 //    }
 //    else
-//    if([self.fetchedResultsTableViewAdapter.fetchedResultsController.fetchedObjects containsObject:object]){
+//    if([self.tableViewFetchAdapter.fetchedResultsController.fetchedObjects containsObject:object]){
 //        [self selectTableRowIfNecessaryForObject:object scrollToSelection:NO];
 //    }
 //    else if(object){
-//        id o = self.fetchedResultsTableViewAdapter.fetchedResultsController.fetchedObjects.firstObject;
+//        id o = self.tableViewFetchAdapter.fetchedResultsController.fetchedObjects.firstObject;
 //        [self selectObject:o notifyWithSender:self selectRow:YES];
 //    }
     
@@ -475,7 +476,7 @@
 //}
 
 //- (void)selectTableRowForObject:(id)object scrollToSelection:(BOOL)scrollToSelection{
-//    NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:object];
+//    NSIndexPath *indexPath = [self.tableViewFetchAdapter.fetchedResultsController indexPathForObject:object];
 //    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:scrollToSelection ? UITableViewScrollPositionMiddle : UITableViewScrollPositionNone];
 //}
 
@@ -607,9 +608,9 @@
 
 //- (void)viewWillDisappear:(BOOL)animated{
    // [super viewWillDisappear:animated];
-  //  self.fetchedResultsTableViewAdapter.fetchedResultsController.delegate = nil;
+  //  self.tableViewFetchAdapter.fetchedResultsController.delegate = nil;
    // [NSNotificationCenter.defaultCenter removeObserver:self name:UIViewControllerShowDetailTargetDidChangeNotification object:nil];
-    //self.fetchedResultsTableViewAdapter.fetchedResultsController.delegate = nil;
+    //self.tableViewFetchAdapter.fetchedResultsController.delegate = nil;
 //}
 
 /*
@@ -619,7 +620,7 @@
     if(!tableView){
         return;
     }
-    NSFetchedResultsController *fetchedResultsController = self.fetchedResultsTableViewAdapter.fetchedResultsController;
+    NSFetchedResultsController *fetchedResultsController = self.tableViewFetchAdapter.fetchedResultsController;
     if(!fetchedResultsController.delegate){
         fetchedResultsController.delegate = self;
         NSError *error;
@@ -633,7 +634,7 @@
     tableView.separatorStyle = fetchedResultsController.fetchedObjects.count ? UITableViewCellSeparatorStyleSingleLine : UITableViewCellSeparatorStyleNone;
     
 //    for(NSManagedObject *selectedObject in self.selectedObjects){
-//        NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:selectedObject];
+//        NSIndexPath *indexPath = [self.tableViewFetchAdapter.fetchedResultsController indexPathForObject:selectedObject];
 //        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 //    }
 }
@@ -658,17 +659,17 @@
 //- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
  //   if(!tableView.isEditing){
         // todo check if it is a selectable one
-     //   id object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+     //   id object = [self.tableViewFetchAdapter.fetchedResultsController objectAtIndexPath:indexPath];
       //  [self selectObject:object notifyWithSender:tableView selectRow:NO];
     //}
-  //  NSManagedObject *object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+  //  NSManagedObject *object = [self.tableViewFetchAdapter.fetchedResultsController objectAtIndexPath:indexPath];
    // [self selectObject:object userDriven:YES];
 //    return indexPath;
 //}
 
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    // if(!self.isEditing){
-   //     NSManagedObject *object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+   //     NSManagedObject *object = [self.tableViewFetchAdapter.fetchedResultsController objectAtIndexPath:indexPath];
         // don't show if in landscape and the object is already selected.
         //self.selectionIsUserDriven = YES;
         //[self setSelectedObject:object show:YES];
@@ -683,7 +684,7 @@
 
 //- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     //self.selectedModelItemIdentifier = nil;
-  //  NSManagedObject *object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+  //  NSManagedObject *object = [self.tableViewFetchAdapter.fetchedResultsController objectAtIndexPath:indexPath];
    // [self deselectObject:object userDriven:YES];
 //}
 
@@ -692,7 +693,7 @@
 //    if([self.tableDelegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]){
 //        [self.tableDelegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
 //    }
-//     id object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
+//     id object = [self.tableViewFetchAdapter.fetchedResultsController objectAtIndexPath:indexPath];
 //    [self configureCell:cell withObject:object];
 //}
 
@@ -769,7 +770,7 @@
 //    if(!idx){
 //        return nil;
 //    }
-//    NSManagedObject *object = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:idx];
+//    NSManagedObject *object = [self.tableViewFetchAdapter.fetchedResultsController objectAtIndexPath:idx];
 //    NSString *identifier = object.objectID.URIRepresentation.absoluteString;
 //    return identifier;
 //}
@@ -780,8 +781,8 @@
 //        return nil;
 //    }
 //    NSURL *objectURI = [NSURL URLWithString:identifier];
-//    NSManagedObject *object = [self.fetchedResultsTableViewAdapter.fetchedResultsController.managedObjectContext mcd_objectWithURI:objectURI];
-//    NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:object];
+//    NSManagedObject *object = [self.tableViewFetchAdapter.fetchedResultsController.managedObjectContext mcd_objectWithURI:objectURI];
+//    NSIndexPath *indexPath = [self.tableViewFetchAdapter.fetchedResultsController indexPathForObject:object];
 //    return indexPath;
 //}
 
