@@ -13,7 +13,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class MMSFetchedResultsTableViewAdapter;
-//@protocol MMSFetchedResultsTableViewAdapterDelegate;
+@protocol MMSFetchedResultsTableViewAdapterDelegate;
+
+@protocol MMSTableViewCellConfiguring <NSObject>
+
+- (void)configureWithObject:(id)object;
+
+@end
 
 @interface MMSFetchedResultsTableViewAdapter<ResultType:id<NSFetchRequestResult>> : NSObject <UITableViewDataSource, NSFetchedResultsControllerDelegate>
 
@@ -32,19 +38,19 @@ NS_ASSUME_NONNULL_BEGIN
 // defaults to NSObject : Cell
 //@property (strong, nonatomic) NSDictionary *cellIdentifiersByClassName;
 
-//@property (weak, nonatomic) id<MMSFetchedResultsTableViewAdapterDelegate> delegate;
+@property (weak, nonatomic) id<MMSFetchedResultsTableViewAdapterDelegate> delegate;
 
-//- (UITableViewCell *)cellForObject:(ResultType)object atIndexPath:(NSIndexPath *)indexPath;
-
-//- (void)configureCell:(UITableViewCell *)cell withObject:(ResultType)object;
+// override to return a cell. Default implementation dequeues a @"Cell" identifier.
+// configureWithObject will be called on the cell returned from this. B
+- (UITableViewCell<MMSTableViewCellConfiguring> *)cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
-//@protocol MMSFetchedResultsTableViewAdapterDelegate<NSObject>
+@protocol MMSFetchedResultsTableViewAdapterDelegate<NSObject>
 
-//@required
-//- (void)fetchedResultsTableViewAdapter:(MMSFetchedResultsTableViewAdapter *)fetchedResultsTableViewAdapter configureCell:(UITableViewCell *)cell withObject:(id)object;
+@required
+- (void)fetchedResultsTableViewAdapter:(MMSFetchedResultsTableViewAdapter *)fetchedResultsTableViewAdapter configureCell:(UITableViewCell *)cell withObject:(id)object;
 
-//@end
+@end
 
 NS_ASSUME_NONNULL_END

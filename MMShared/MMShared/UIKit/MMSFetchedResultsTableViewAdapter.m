@@ -80,6 +80,7 @@
     
     UITableView *tableView = self.tableView;
 
+    //NSLog(@"%d %@ %@", type, indexPath, newIndexPath);
     
     //if(type != NSFetchedResultsChangeUpdate){
 //    if(!self.wasDisplayed){
@@ -104,8 +105,9 @@
             // Can't use the tableView move method becasue its animation does not play with section inserts/deletes.
             // Also if we used move would need to update the cell manually which might use the wrong index.
             // Even if old and new indices are the same we still need to call the methods.
-            NSLog(@"%@", object.changedValuesForCurrentEvent.allKeys);
+        //    NSLog(@"%@", object.changedValuesForCurrentEvent.allKeys);
             if(self.sectionsCountChanged || indexPath.section != newIndexPath.section){
+               // NSLog(@"delete, insert");
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
                 [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
                 break;
@@ -116,11 +118,13 @@
         {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             if(cell){
+                // this can't call anything that will call [controller objectAtIndex] because it won't be the correct index.
                 //[self.fetchedResultsTableViewAdapter configureCell:cell withObject:object];
                 //[self configureCell:cell withObject:object];
-                if([tableView.delegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]){
-                    [tableView.delegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
-                }
+//                if([tableView.delegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]){
+//                    [tableView.delegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
+//                }
+                [self configureCell:cell withObject:object];
             }
             break;
         }
@@ -226,14 +230,26 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ///NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
     //NSString *cellIdentifier = self.cellIdentifiersByClassName[object.className];
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
    // UITableViewCell *cell = [self cellForObject:object atIndexPath:indexPath];
-   // [self configureCell:cell withObject:object];
-    return [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];;
+   //
+    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    UITableViewCell<MMSTableViewCellConfiguring> *cell = [self cellForObject:object atIndexPath:indexPath];
+    [self configureCell:cell withObject:object];
+    return cell;
 }
 
+- (UITableViewCell<MMSTableViewCellConfiguring> *)cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    return [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+}
+
+- (void)configureCell:(UITableViewCell *)cell withObject:(id)object{
+    Protocol *protocol = @protocol(MMSTableViewCellConfiguring);
+    NSAssert([cell conformsToProtocol:protocol], @"cell must conform to protocol %@", NSStringFromProtocol(protocol));
+    [(UITableViewCell<MMSTableViewCellConfiguring> *)cell configureWithObject:object];
+}
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
@@ -277,13 +293,6 @@
 ////        cell.selectedBackgroundView = v;
 ////    }
 //    return cell;
-//}
-
-
-//- (void)configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
-//    if(self.delegate){
-//        [self.delegate fetchedResultsTableViewAdapter:self configureCell:cell withObject:object];
-//    }
 //}
 
 @end
