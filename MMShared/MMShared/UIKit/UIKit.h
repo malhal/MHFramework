@@ -25,7 +25,7 @@
 #import <MMShared/MMSTableView.h>
 //#import <MMShared/MMSMasterTableViewController.h>
 //#import <MMShared/MMSFetchedTableViewController.h>
-#import <MMShared/MMSTableViewFetchAdapter.h>
+#import <MMShared/MMSTableViewFetchedResultsController.h>
 #import <MMShared/MMSRootNavigationController.h>
 //#import <MMShared/MMSDetailNavigationController.h>
 //#import <MMShared/MMSFetchedTableViewControllerViewControllerSupport.h>
@@ -41,7 +41,9 @@
 //#import <MMShared/MMSFetchedTableViewControllerSelectionController.h>
 #import <MMShared/MMSFetchedPageViewController.h>
 #import <MMShared/MMSFetchedPageContainerDataSource.h>
+
 //#import <MMShared/MMSFetchedPageViewControllerDelegate.h>
+#import <MMShared/MMSTableViewFetchedResultsUpdater.h>
 
 #import <MMShared/UIAlertController+MMS.h>
 #import <MMShared/UINavigationBar+MMS.h>
