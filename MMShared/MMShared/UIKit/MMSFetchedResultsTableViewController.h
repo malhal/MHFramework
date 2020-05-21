@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import <MMShared/MMSDefines.h>
+#import <MMShared/MMSTableViewFetchedResultsController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class MMSTableViewFetchedResultsController;
-
-@interface MMSFetchedResultsTableViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface MMSFetchedResultsTableViewController : UITableViewController<MMSTableViewFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) MMSTableViewFetchedResultsController *tableViewFetchedResultsController;
 

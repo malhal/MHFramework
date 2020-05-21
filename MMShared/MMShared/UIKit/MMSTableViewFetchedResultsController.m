@@ -15,6 +15,11 @@
 @end
 
 @implementation MMSTableViewFetchedResultsController
+@dynamic delegate;
+
+- (instancetype)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name{
+    return nil;
+}
 
 //- (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)controller
 //- (instancetype)initWithTableView:(UITableView *)tableView
@@ -92,7 +97,9 @@
 //    Protocol *protocol = @protocol(MMSTableViewCellConfiguring);
 //    NSAssert([cell conformsToProtocol:protocol], @"cell must conform to protocol %@", NSStringFromProtocol(protocol));
 //    [(UITableViewCell<MMSTableViewCellConfiguring> *)cell configureWithObject:object];
-  //  [self.cellUpdater fetchedResultsViewUpdater:self updateCell:cell withObject:object];
+    if([self.delegate respondsToSelector:@selector(tableViewFetchedResultsController:updateCell:withObject:)]){
+        [self.delegate tableViewFetchedResultsController:self updateCell:cell withObject:object];
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

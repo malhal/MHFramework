@@ -14,6 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 //@protocol MMSTableViewFetchedResultsControllerCellUpdating;
+@class MMSTableViewFetchedResultsController;
+
+@protocol MMSTableViewFetchedResultsControllerDelegate <NSFetchedResultsControllerDelegate>
+@optional
+- (void)tableViewFetchedResultsController:(MMSTableViewFetchedResultsController *)tableViewFetchedResultsController updateCell:(UITableViewCell *)cell withObject:(id)object;
+
+@end
 
 // TableViewFetchingAdapter, FetchedResultsViewUpdater
 @interface MMSTableViewFetchedResultsController<ResultType:id<NSFetchRequestResult>> : NSFetchedResultsController <UITableViewDataSource>
@@ -36,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 // defaults to NSObject : Cell
 //@property (strong, nonatomic) NSDictionary *cellIdentifiersByClassName;
 
-//@property (weak, nonatomic) id<MMSTableViewFetchedResultsControllerDelegate> delegate;
+@property (weak, nonatomic) id<MMSTableViewFetchedResultsControllerDelegate> delegate;
 //@property (weak, nonatomic) id<MMSTableViewFetchedResultsControllerCellUpdating> cellUpdater;
 
 // override to return a cell. Default implementation dequeues a @"Cell" identifier.
