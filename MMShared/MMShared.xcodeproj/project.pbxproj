@@ -251,8 +251,8 @@
 		EC31D18A246FEFF200DCFF05 /* MMSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D189246FEFF100DCFF05 /* MMSDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC31D18D246FF10600DCFF05 /* MMSCDError.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31D18B246FF10600DCFF05 /* MMSCDError.m */; };
 		EC31D18E246FF10600DCFF05 /* MMSCDError.h in Headers */ = {isa = PBXBuildFile; fileRef = EC31D18C246FF10600DCFF05 /* MMSCDError.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC445E34247685CC00B024C9 /* MMSTableViewFetchedResultsUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = EC445E32247685CC00B024C9 /* MMSTableViewFetchedResultsUpdater.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC445E35247685CC00B024C9 /* MMSTableViewFetchedResultsUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = EC445E33247685CC00B024C9 /* MMSTableViewFetchedResultsUpdater.m */; };
+		EC445E34247685CC00B024C9 /* MMSFetchedResultsTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC445E32247685CC00B024C9 /* MMSFetchedResultsTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC445E35247685CC00B024C9 /* MMSFetchedResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC445E33247685CC00B024C9 /* MMSFetchedResultsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -513,8 +513,8 @@
 		EC31D189246FEFF100DCFF05 /* MMSDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSDefines.h; sourceTree = "<group>"; };
 		EC31D18B246FF10600DCFF05 /* MMSCDError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSCDError.m; sourceTree = "<group>"; };
 		EC31D18C246FF10600DCFF05 /* MMSCDError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSCDError.h; sourceTree = "<group>"; };
-		EC445E32247685CC00B024C9 /* MMSTableViewFetchedResultsUpdater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSTableViewFetchedResultsUpdater.h; sourceTree = "<group>"; };
-		EC445E33247685CC00B024C9 /* MMSTableViewFetchedResultsUpdater.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMSTableViewFetchedResultsUpdater.m; sourceTree = "<group>"; };
+		EC445E32247685CC00B024C9 /* MMSFetchedResultsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMSFetchedResultsTableViewController.h; sourceTree = "<group>"; };
+		EC445E33247685CC00B024C9 /* MMSFetchedResultsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMSFetchedResultsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -792,8 +792,8 @@
 				EC31D0ED246FEAF100DCFF05 /* MMSFetchedPageViewControllerDelegate2.m */,
 				EC31D0E8246FEAF000DCFF05 /* MMSTableViewFetchedResultsController.h */,
 				EC31D11B246FEAF300DCFF05 /* MMSTableViewFetchedResultsController.m */,
-				EC445E32247685CC00B024C9 /* MMSTableViewFetchedResultsUpdater.h */,
-				EC445E33247685CC00B024C9 /* MMSTableViewFetchedResultsUpdater.m */,
+				EC445E32247685CC00B024C9 /* MMSFetchedResultsTableViewController.h */,
+				EC445E33247685CC00B024C9 /* MMSFetchedResultsTableViewController.m */,
 				EC31D10B246FEAF200DCFF05 /* MMSFlipController.h */,
 				EC31D115246FEAF300DCFF05 /* MMSFlipController.m */,
 				EC31D0FC246FEAF100DCFF05 /* MMSFullerWebViewController.h */,
@@ -951,7 +951,7 @@
 				EC31D172246FEAF400DCFF05 /* MMSDetailViewManager.h in Headers */,
 				EC31D07E246F379600DCFF05 /* NSObject+MMS.h in Headers */,
 				EC31D07A246F379600DCFF05 /* MMSUtilities.h in Headers */,
-				EC445E34247685CC00B024C9 /* MMSTableViewFetchedResultsUpdater.h in Headers */,
+				EC445E34247685CC00B024C9 /* MMSFetchedResultsTableViewController.h in Headers */,
 				EC31D07B246F379600DCFF05 /* NSDate+MMS.h in Headers */,
 				EC31D14D246FEAF400DCFF05 /* MMSAccountViewController.h in Headers */,
 				EC31D132246FEAF400DCFF05 /* MMSMasterNavigationController.h in Headers */,
@@ -1185,7 +1185,7 @@
 				EC31D12C246FEAF400DCFF05 /* UIViewController+MMSShowing.m in Sources */,
 				EC31D088246F379600DCFF05 /* MMSAsyncOperation.m in Sources */,
 				EC31D095246F379700DCFF05 /* NSOperationQueue+MMS.m in Sources */,
-				EC445E35247685CC00B024C9 /* MMSTableViewFetchedResultsUpdater.m in Sources */,
+				EC445E35247685CC00B024C9 /* MMSFetchedResultsTableViewController.m in Sources */,
 				EC31D15D246FEAF400DCFF05 /* MMSAlertController.m in Sources */,
 				EC31D143246FEAF400DCFF05 /* MMSDetailViewManager.m in Sources */,
 				EC31D13D246FEAF400DCFF05 /* MMSFetchedPageContainerDataSource.m in Sources */,

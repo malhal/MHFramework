@@ -14,11 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class MMSTableViewFetchedResultsController;
 
-@interface MMSTableViewFetchedResultsUpdater : NSObject<NSFetchedResultsControllerDelegate>
+@interface MMSFetchedResultsTableViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic, readonly) MMSTableViewFetchedResultsController *tableViewFetchedResultsController;
-
-- (instancetype)initWithTableViewFetchedResultsController:(MMSTableViewFetchedResultsController *)tableViewFetchedResultsController;
+@property (strong, nonatomic) MMSTableViewFetchedResultsController *tableViewFetchedResultsController;
 
 @end
 

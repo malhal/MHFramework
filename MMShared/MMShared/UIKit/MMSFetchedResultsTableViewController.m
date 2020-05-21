@@ -1,34 +1,40 @@
 //
-//  MMSTableViewFetchedResultsUpdater.m
+//  MMSFetchedResultsTableViewController.m
 //  MMShared
 //
 //  Created by Malcolm Hall on 21/05/2020.
 //  Copyright © 2020 Malcolm Hall. All rights reserved.
 //
 
-#import "MMSTableViewFetchedResultsUpdater.h"
+#import "MMSFetchedResultsTableViewController.h"
 #import "MMSTableViewFetchedResultsController.h"
 
-@interface MMSTableViewFetchedResultsUpdater()
+@interface MMSFetchedResultsTableViewController()
 
 @property (assign, nonatomic) BOOL sectionsCountChanged;
 
 @end
 
 
-@implementation MMSTableViewFetchedResultsUpdater
+@implementation MMSFetchedResultsTableViewController
 
-- (instancetype)initWithTableViewFetchedResultsController:(MMSTableViewFetchedResultsController *)tableViewFetchedResultsController{
-    self = [super init];
-    if (self) {
-        _tableViewFetchedResultsController = tableViewFetchedResultsController;
-        tableViewFetchedResultsController.delegate = self;
+- (void)setTableViewFetchedResultsController:(MMSTableViewFetchedResultsController *)tableViewFetchedResultsController{
+    if(_tableViewFetchedResultsController == tableViewFetchedResultsController){
+        return;
     }
-    return self;
+    _tableViewFetchedResultsController = tableViewFetchedResultsController;
+    tableViewFetchedResultsController.delegate = self;
 }
 
-- (UITableView *)tableView{
-    return self.tableViewFetchedResultsController.tableView;
+- (void)viewWillAppear:(BOOL)animated{
+    NSParameterAssert(self.tableViewFetchedResultsController);
+    if(!self.tableViewFetchedResultsController.fetchedObjects){
+        NSError *error;
+        if(![self.tableViewFetchedResultsController performFetch:&error]){
+            NSLog(@"Error fetching %@", error);
+        }
+    }
+    [super viewWillAppear:animated];
 }
 
 #pragma mark - Fetched results controller

@@ -43,7 +43,7 @@
 #import <MMShared/MMSFetchedPageContainerDataSource.h>
 
 //#import <MMShared/MMSFetchedPageViewControllerDelegate.h>
-#import <MMShared/MMSTableViewFetchedResultsUpdater.h>
+#import <MMShared/MMSFetchedResultsTableViewController.h>
 
 #import <MMShared/UIAlertController+MMS.h>
 #import <MMShared/UINavigationBar+MMS.h>
