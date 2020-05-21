@@ -17,3 +17,6 @@
 #define MMSThrowMethodUnavailableException()  @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"method unavailable" userInfo:nil];
 
 #define MMSThrowInvalidArgumentExceptionIfNil(argument)  if (!argument) { @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@#argument" cannot be nil." userInfo:nil]; }
+
+#define MMSClassAssert(obj, class)  NSParameterAssert([obj isKindOfClass:class]);
+#define MMSProtocolAssert(obj, protocol)  NSParameterAssert([obj conformsToProtocol:protocol]);

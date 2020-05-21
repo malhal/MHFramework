@@ -6,8 +6,18 @@
 //  Copyright © 2020 Malcolm Hall. All rights reserved.
 //
 
-#ifndef MMSCellObject_h
-#define MMSCellObject_h
+#import <UIKit/UIKit.h>
+#import <MMShared/MMSDefines.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
-#endif /* MMSCellObject_h */
+@protocol MMSCellObject <NSObject>
+@required
+@property (copy, nonatomic, readonly) NSString *title;
+
+@optional
+@property (copy, nonatomic, readonly) NSString *subtitle;
+
+@end
+
+NS_ASSUME_NONNULL_END
