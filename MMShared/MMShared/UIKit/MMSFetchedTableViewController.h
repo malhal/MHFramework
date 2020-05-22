@@ -23,21 +23,23 @@ NS_ASSUME_NONNULL_BEGIN
 //
 //@end
 
-// TableViewFetchingAdapter, FetchedResultsViewUpdater // <ResultType:id<NSFetchRequestResult>>
-@interface MMSTableViewFetchedResultsAdapter : NSObject <UITableViewDataSource, NSFetchedResultsControllerDelegate>
+// TableViewFetchingAdapter, FetchedResultsViewUpdater //
+@interface MMSFetchedTableViewController<ResultType:id<NSFetchRequestResult>> : UITableViewController<NSFetchedResultsControllerDelegate>
 
 //- (instancetype)initWithFetchRequest:(NSFetchRequest<ResultType> *)fetchRequest managedObjectContext: (NSManagedObjectContext *)context sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath cacheName:(nullable NSString *)name tableView:(UITableView *)tableView;
 
-- (instancetype)initWithTableViewController:(UITableViewController *)tableViewController;
+//- (instancetype)initWithTableViewController:(UITableViewController *)tableViewController;
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController<ResultType> *fetchedResultsController;
 
 // maybe use this for implementing swipe to delete?
 @property (assign, nonatomic) BOOL canDeleteObjects;
 
-@property (weak, nonatomic) IBOutlet UITableViewController *tableViewController;
+- (void)updateCell:(UITableViewCell *)cell withObject:(ResultType)object;
 
-@property (weak, nonatomic) IBOutlet id<NSFetchedResultsControllerDelegate> delegate;
+//@property (weak, nonatomic) IBOutlet UITableViewController *tableViewController;
+
+//@property (weak, nonatomic) IBOutlet id<NSFetchedResultsControllerDelegate> delegate;
 
 //- (instancetype)initWithTableView:(UITableView *)tableView;
 
