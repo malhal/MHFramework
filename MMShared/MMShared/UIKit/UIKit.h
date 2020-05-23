@@ -70,10 +70,11 @@
 
 
 
-#import <MMShared/MMSFetchedTableViewController.h>
+#import <MMShared/MMSFetchedResultsTableViewController.h>
 
 #import <MMShared/MMSExternalWebActivity.h>
 #import <MMShared/MMSFullerWebViewController.h>
 #import <MMShared/UIDevice+MMS.h>
 
 #import <MMShared/MMSObjectTableViewCell.h>
+#import <MMShared/MMSFetchedResultsTableViewControllerImpl.h>

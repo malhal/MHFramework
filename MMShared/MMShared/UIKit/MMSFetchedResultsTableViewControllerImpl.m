@@ -6,75 +6,39 @@
 //  Copyright © 2020 Malcolm Hall. All rights reserved.
 //
 
-#import "MMSFetchedTableViewController.h"
+#import "MMSFetchedResultsTableViewControllerImpl.h"
 #import <objc/runtime.h>
 #import "MMSUtilities.h"
 
-@interface MMSFetchedTableViewController()
+@interface MMSFetchedResultsTableViewControllerImpl()
 
 @property (assign, nonatomic) BOOL sectionsCountChanged;
 
 @end
 
-@implementation MMSFetchedTableViewController
+@implementation MMSFetchedResultsTableViewControllerImpl
 
 //- (instancetype)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name{
 //    return nil;
 //}
 
-//- (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)controller
-//- (instancetype)initWithTableView:(UITableView *)tableView{
-//- (instancetype)initWithTableViewController:(UITableViewController *)tableViewController{
+
+- (instancetype)initWithTableViewController:(UITableViewController<MMSFetchedResultsTableViewController> *)tableViewController {
 ////- (instancetype)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name tableView:(UITableView *)tableView{
 //    NSParameterAssert(tableView);
 //  //  self = [super initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:sectionNameKeyPath cacheName:name];
-//    self = [super init];
-//    if (self) {
+    self = [super init];
+    if (self) {
         //_tableView = tableView;
-  //      _tableViewController = tableViewController;
+        _tableViewController = tableViewController;
         //tableView.dataSource = self;
         //_fetchedResultsController = controller;
         //_cellIdentifiersByClassName = @{NSStringFromClass(NSObject.class) : @"Cell"};
-//    }
-//    return self;
-//}
+    }
+    return self;
+}
 
-//- (id)forwardingTargetForSelector:(SEL)aSelector{
-//   // if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDelegate), aSelector)){
-////        if([self.delegate respondsToSelector:aSelector]){
-////            return self.delegate;
-////        }
-// //   }
-//    if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDataSource), aSelector)){
-//        return self.tableViewController;
-////        if([self.delegate respondsToSelector:aSelector]){
-////            return self.delegate;
-////        }
-//    }
-//    else if(MMSProtocolHasInstanceMethod(@protocol(NSFetchedResultsControllerDelegate), aSelector)){
-////        if([self.delegate respondsToSelector:aSelector]){
-////            return self.delegate;
-////        }
-//        return self.delegate;
-//    }
-//    return [super forwardingTargetForSelector:aSelector];
-//}
 
-//- (BOOL)respondsToSelector:(SEL)aSelector{
-//    if([super respondsToSelector:aSelector]){
-//        return YES;
-//    }
-////    else if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDelegate), aSelector)){
-////        return [self.delegate respondsToSelector:aSelector];
-////    }
-//    if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDataSource), aSelector)){
-//        return [self.delegate respondsToSelector:aSelector];
-//    }
-//    else if(MMSProtocolHasInstanceMethod(@protocol(NSFetchedResultsControllerDelegate), aSelector)){
-//        return [self.delegate respondsToSelector:aSelector];
-//    }
-//    return NO;
-//}
 
 //- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController{
 //    if(fetchedResultsController == _fetchedResultsController){
@@ -125,16 +89,19 @@
 #pragma mark - Table View
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    id object = [self.tableViewController.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.tableViewController updateCell:cell withObject:object];
+    return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.fetchedResultsController sections] count];
+    return [[self.tableViewController.fetchedResultsController sections] count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.tableViewController.fetchedResultsController sections][section];
     return [sectionInfo numberOfObjects];
 }
 
@@ -145,8 +112,8 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = self.fetchedResultsController.managedObjectContext;
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        NSManagedObjectContext *context = self.tableViewController.fetchedResultsController.managedObjectContext;
+        [context deleteObject:[self.tableViewController.fetchedResultsController objectAtIndexPath:indexPath]];
             
         NSError *error = nil;
         if (![context save:&error]) {
@@ -158,9 +125,6 @@
     }
 }
 
-- (void)updateCell:(UITableViewCell *)cell withObject:(id<NSFetchRequestResult>)object{
-
-}
 
 //    if(self.needsTableViewUpdates){
 //        self.reloadTableOnNextAppear = YES;
@@ -232,7 +196,7 @@
 //    if([self.fetchedResultsDelegate respondsToSelector:@selector(controllerWillChangeContent:)]){
 //        [self.fetchedResultsDelegate controllerWillChangeContent:controller];
 //    }
-    UITableView *tableView = self.tableView;
+    UITableView *tableView = self.tableViewController.tableView;
     [tableView beginUpdates];
 //    if([self.delegate respondsToSelector:_cmd]){
 //        [self.delegate controllerWillChangeContent:controller];
@@ -241,7 +205,7 @@
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-    UITableView *tableView = self.tableView;
+    UITableView *tableView = self.tableViewController.tableView;
     switch(type) {
         case NSFetchedResultsChangeInsert:
             self.sectionsCountChanged = YES;
@@ -264,7 +228,7 @@
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
 
-    UITableView *tableView = self.tableView;
+    UITableView *tableView = self.tableViewController.tableView;
 
     //NSLog(@"%d %@ %@", type, indexPath, newIndexPath);
 
@@ -305,12 +269,7 @@
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             if(cell){
                 // this can't call anything that will call [controller objectAtIndex] because it won't be the correct index.
-                //[self.fetchedResultsViewUpdater configureCell:cell withObject:object];
-                //[self configureCell:cell withObject:object];
-//                if([tableView.delegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]){
-//                    [tableView.delegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
-//                }
-                [self updateCell:cell withObject:object];
+                [self.tableViewController updateCell:cell withObject:object];
             }
             break;
         }
@@ -322,7 +281,8 @@
 
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
+    UITableView *tableView = self.tableViewController.tableView;
+    [tableView endUpdates];
     
 //    if([self.delegate respondsToSelector:@selector(controllerDidChangeContent:)]){
 //        [self.delegate controllerDidChangeContent:controller];
@@ -372,15 +332,13 @@
 
 }
 
-
-
 @end
 
 
 
 
 
-//- (void)setFetchedResultsTableViewAdapter:(MMSTableViewFetchedResultsAdapter *)fetchedResultsViewUpdater{
+//- (void)setFetchedResultsTableViewAdapter:(MMSFetchedResultsTableViewControllerImpl *)fetchedResultsViewUpdater{
 //    if(fetchedResultsViewUpdater == _fetchedResultsViewUpdater){
 //        return;
 //    }
