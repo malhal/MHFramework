@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol MMSFetchedResultsTableViewController<NSFetchedResultsControllerDelegate>
+@protocol MMSFetchedResultsTableViewController<NSObject>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
