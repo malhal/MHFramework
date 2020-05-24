@@ -6,27 +6,23 @@
 //  Copyright © 2020 Malcolm Hall. All rights reserved.
 //
 
-#import "MMSFetchedResultsTableViewControllerImpl.h"
+#import "MMSTableViewControllerDataFetchedImpl.h"
 #import <objc/runtime.h>
 #import "MMSUtilities.h"
 
-@interface MMSFetchedResultsTableViewControllerImpl()
+@interface MMSTableViewControllerDataFetchedImpl()
 
 @property (assign, nonatomic) BOOL sectionsCountChanged;
 
 @end
 
-@implementation MMSFetchedResultsTableViewControllerImpl
+@implementation MMSTableViewControllerDataFetchedImpl
+@synthesize tableViewController = _tableViewController;
 
-//- (instancetype)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name{
-//    return nil;
-//}
-
-
-- (instancetype)initWithTableViewController:(UITableViewController<MMSFetchedResultsTableViewController> *)tableViewController {
-////- (instancetype)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name tableView:(UITableView *)tableView{
-//    NSParameterAssert(tableView);
-//  //  self = [super initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:sectionNameKeyPath cacheName:name];
+- (instancetype)initWithTableViewController:(UITableViewController<MMSTableViewControllerDataDelegate> *)tableViewController{
+//////- (instancetype)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name tableView:(UITableView *)tableView{
+////    NSParameterAssert(tableView);
+////  //  self = [super initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:sectionNameKeyPath cacheName:name];
     self = [super init];
     if (self) {
         //_tableView = tableView;
@@ -38,70 +34,54 @@
     return self;
 }
 
+- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController{
+    if(fetchedResultsController == _fetchedResultsController){
+        return;
+    }
+    else if(_fetchedResultsController.delegate == self){
+        _fetchedResultsController.delegate = nil;
+    }
+  //  id a = self.tableView.dataSource;
+    _fetchedResultsController = fetchedResultsController;
+    if(!fetchedResultsController.delegate){ // in case they already have a delegate and plan on forwarding here.
+        fetchedResultsController.delegate = self;
 
+       // self.tableView.dataSource = self;
+       // [self.tableView reloadData];
+    }
+}
 
-//- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController{
-//    if(fetchedResultsController == _fetchedResultsController){
-//        return;
+- (void)configureCell:(UITableViewCell *)cell withObject:(id)object{
+    [self.tableViewController configureCell:cell withObject:object];
+//    BOOL push = [self shouldPushForObject:object];
+////    // Only show a disclosure indicator if we're pushing
+//    if (push) {
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    } else {
+//        cell.accessoryType = UITableViewCellAccessoryNone;
 //    }
-//    else if(_fetchedResultsController.delegate == self){
-//        _fetchedResultsController.delegate = nil;
+//    if([self.delegate respondsToSelector:@selector(fetchedTableViewController:updateCell:withObject:)]){
+//        [self.delegate fetchedTableViewController:self updateCell:cell withObject:object];
 //    }
-//  //  id a = self.tableView.dataSource;
-//    _fetchedResultsController = fetchedResultsController;
-//    if(fetchedResultsController){
-//        fetchedResultsController.delegate = self;
-//
-//       // self.tableView.dataSource = self;
-//       // [self.tableView reloadData];
-//    }
-//}
+}
 
-//- (void)setTableViewController:(UITableViewController *)tableViewController{
-//    if(tableViewController == _tableViewController){
-//        return;
-//    }
-////    else if(_tableViewController.dataSource == self){
-////        _tableViewController.dataSource = nil;
-////    }
-//    _tableViewController = tableViewController;
-//  //  tableView.dataSource = self;
-//}
-
-//- (void)setTableView:(UITableView *)tableView{
-//    if(tableView == _tableView){
-//        return;
-//    }
-//    else if(_tableView.dataSource == self){
-//        _tableView.dataSource = nil;
-//    }
-//    _tableView = tableView;
-//    tableView.dataSource = self;
-//}
-
-//- (BOOL)fetchAndReload:(NSError *__autoreleasing  _Nullable *)error{
-//  //  NSParameterAssert(self.tableView);
-//    BOOL result = [self.fetchedResultsController performFetch:error];
-//    [self.tableView reloadData];
-//    return result;
-//}
 
 #pragma mark - Table View
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    id object = [self.tableViewController.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.tableViewController updateCell:cell withObject:object];
+    id object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self configureCell:cell withObject:object];
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.tableViewController.fetchedResultsController sections] count];
+    return [[self.fetchedResultsController sections] count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.tableViewController.fetchedResultsController sections][section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     return [sectionInfo numberOfObjects];
 }
 
@@ -112,8 +92,8 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = self.tableViewController.fetchedResultsController.managedObjectContext;
-        [context deleteObject:[self.tableViewController.fetchedResultsController objectAtIndexPath:indexPath]];
+        NSManagedObjectContext *context = self.fetchedResultsController.managedObjectContext;
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
             
         NSError *error = nil;
         if (![context save:&error]) {
@@ -269,7 +249,7 @@
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             if(cell){
                 // this can't call anything that will call [controller objectAtIndex] because it won't be the correct index.
-                [self.tableViewController updateCell:cell withObject:object];
+                [self configureCell:cell withObject:object];
             }
             break;
         }
@@ -332,13 +312,64 @@
 
 }
 
+//- (void)viewWillAppear:(BOOL)animated{
+//
+//    if(!self.fetchedResultsController.fetchedObjects){
+//        NSError *error;
+//        if([self.fetchedResultsController performFetch:&error]){
+//            NSLog(@"fetch error");
+//        }
+//    }
+    
+ //NSArray *a = self.navigationController.viewControllers;
+  //  [self.tableView reloadData];
+    
+   // BOOL b = self.currentDetailNavigationController.mms_isViewVisible;
+    
+//    if(self.isEditing || self.clearsSelectionOnViewWillAppear){
+//
+//    }
+   // self.clearsSelectionOnViewWillAppear = !self.isMovingToParentViewController;
+    
+    //[self configureView];
+    
+    /*
+    if(self.clearsSelectionOnViewWillAppear){
+        id <UIViewControllerTransitionCoordinator> transitionCoordinator;
+        if((transitionCoordinator = self.transitionCoordinator)){
+            [transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+                for(NSIndexPath *indexPath in self.tableView.indexPathsForSelectedRows){
+                    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+                    if(cell){
+                        [cell setNeedsLayout];
+                    }
+                }
+            } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+                if(context.cancelled){
+                    
+                }
+                else{
+                    [self.selectedObjects removeAllObjects];
+                 //   [self configureView];
+                }
+            }];
+        }
+    }else{
+      //  [self.selectedObjects removeAllObjects];
+    //    [self configureView];
+    }
+    */
+//    [super viewWillAppear:animated];
+//}
+
+
 @end
 
 
 
 
 
-//- (void)setFetchedResultsTableViewAdapter:(MMSFetchedResultsTableViewControllerImpl *)fetchedResultsViewUpdater{
+//- (void)setFetchedResultsTableViewAdapter:(MMSFetchedTableViewController *)fetchedResultsViewUpdater{
 //    if(fetchedResultsViewUpdater == _fetchedResultsViewUpdater){
 //        return;
 //    }
@@ -592,48 +623,6 @@
 //    }
 //}
 
-//- (void)viewWillAppear:(BOOL)animated{
-
- //NSArray *a = self.navigationController.viewControllers;
-  //  [self.tableView reloadData];
-    
-   // BOOL b = self.currentDetailNavigationController.mms_isViewVisible;
-    
-//    if(self.isEditing || self.clearsSelectionOnViewWillAppear){
-//
-//    }
-   // self.clearsSelectionOnViewWillAppear = !self.isMovingToParentViewController;
-    
-    //[self configureView];
-    
-    /*
-    if(self.clearsSelectionOnViewWillAppear){
-        id <UIViewControllerTransitionCoordinator> transitionCoordinator;
-        if((transitionCoordinator = self.transitionCoordinator)){
-            [transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-                for(NSIndexPath *indexPath in self.tableView.indexPathsForSelectedRows){
-                    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-                    if(cell){
-                        [cell setNeedsLayout];
-                    }
-                }
-            } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-                if(context.cancelled){
-                    
-                }
-                else{
-                    [self.selectedObjects removeAllObjects];
-                 //   [self configureView];
-                }
-            }];
-        }
-    }else{
-      //  [self.selectedObjects removeAllObjects];
-    //    [self configureView];
-    }
-    */
-    //[super viewWillAppear:animated];
-//}
 
 //- (void)viewDidAppear:(BOOL)animated{
 //    [super viewDidAppear:animated];
@@ -735,18 +724,6 @@
 
 
 
-//- (void)updateCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
-//    BOOL push = [self shouldPushForObject:object];
-////    // Only show a disclosure indicator if we're pushing
-//    if (push) {
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    } else {
-//        cell.accessoryType = UITableViewCellAccessoryNone;
-//    }
-//    if([self.delegate respondsToSelector:@selector(fetchedTableViewController:updateCell:withObject:)]){
-//        [self.delegate fetchedTableViewController:self updateCell:cell withObject:object];
-//    }
-//}
 
 //- (void)tableViewDidEndEditing:(MMSTableView *)tableView{
    // [self updateTableViewForSelectedObjectIfNecessary];
