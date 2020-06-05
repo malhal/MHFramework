@@ -34,7 +34,9 @@
 #import <MMShared/MMSDetailViewManager.h>
 //#import <MMShared/MMSObjectsTable.h>
 #import <MMShared/MMSSplitViewController.h>
-#import <MMShared/MMSCellObject.h>
+
+
+#import <MMShared/MMSUpdatingTableViewControllerFetchedResultsSupport.h>
 
 //#import <MMShared/MMSDetailNavigationController.h>
 //#import <MMShared/MMSFetchedDetailNavigationController.h>
@@ -71,7 +73,3 @@
 #import <MMShared/MMSExternalWebActivity.h>
 #import <MMShared/MMSFullerWebViewController.h>
 #import <MMShared/UIDevice+MMS.h>
-
-#import <MMShared/MMSObjectTableViewCell.h>
-#import <MMShared/MMSTableViewControllerData.h>
-#import <MMShared/MMSTableViewControllerDataFetchedImpl.h>

@@ -20,3 +20,5 @@
 
 #define MMSClassAssert(obj, class)  NSParameterAssert([obj isKindOfClass:class]);
 #define MMSProtocolAssert(obj, protocol)  NSParameterAssert([obj conformsToProtocol:protocol]);
+
+#define MMSLogSelector NSLog(@"%@ %@", NSStringFromClass(self.class), NSStringFromSelector(_cmd));

@@ -13,13 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MMSTableViewCellObject <NSObject>
 
-- (NSString *)tableViewCellIdentifier;
-// the keys of the object that are viewed in the cell. Update views will be called when their values change.
-//+ (NSSet<NSString *> *)keyPathsForTableViewCell;
 - (NSString *)titleForTableViewCell;
 @optional
 - (NSString *)subtitleForTableViewCell;
-//- (BOOL)containsObject:(NSManagedObject *)object;
 
 @end
 

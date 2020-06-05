@@ -65,7 +65,6 @@
 //        controller.fetchedPageObject = selectedPageObject;
 //        [self setViewControllers:@[controller] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 //    }
-    NSLog(@"");
 }
 
 - (id)selectedPageObject{
